@@ -1,0 +1,1465 @@
+[
+  {
+    "id": "startermod:RoxyAbsoluteWater",
+    "name": "绝对水域",
+    "values": {
+      "COST": "3",
+      "DAMAGE_BONUS": "3"
+    },
+    "types": [
+      "POWER",
+      "RARE"
+    ],
+    "flags": [],
+    "description": "攻击牌造成的伤害增加 !M! 点。 NL 每回合开始时，获得 1 层 咏唱 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyAbsoluteWater.java",
+    "image": "roxy_absolute_water.png"
+  },
+  {
+    "id": "startermod:RoxyAquaCathedral",
+    "name": "水之大圣堂",
+    "values": {
+      "COST": "3",
+      "BLOCK": "30",
+      "WEAK": "2"
+    },
+    "types": [
+      "SKILL",
+      "RARE"
+    ],
+    "flags": [
+      [
+        "exhaust",
+        "true"
+      ]
+    ],
+    "description": "获得 !B! 点 格挡 。 NL 给予所有敌人 !M! 层 虚弱 。 NL 消耗 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyAquaCathedral.java",
+    "image": "roxy_aqua_cathedral.png"
+  },
+  {
+    "id": "startermod:RoxyAquaMirror",
+    "name": "水镜",
+    "values": {
+      "COST": "1",
+      "BLOCK": "8",
+      "DRAW": "1",
+      "UPGRADE_BLOCK": "3"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "获得 !B! 点 格挡 。 NL 抽 !M! 张牌。 NL 若拥有 咏唱 ，再抽 !M! 张牌。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyAquaMirror.java",
+    "image": "roxy_aqua_mirror.png"
+  },
+  {
+    "id": "startermod:RoxyAquaRing",
+    "name": "水环",
+    "values": {
+      "COST": "1",
+      "BLOCK": "7",
+      "CHANT": "1",
+      "UPGRADE_BLOCK": "3"
+    },
+    "types": [
+      "SKILL",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "获得 !B! 点 格挡 。 NL 获得 !M! 层 咏唱 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyAquaRing.java",
+    "image": "roxy_aqua_ring.png"
+  },
+  {
+    "id": "startermod:RoxyBeginnerChant",
+    "name": "初级咏唱",
+    "values": {
+      "COST": "1",
+      "CHANT": "2"
+    },
+    "types": [
+      "SKILL",
+      "BASIC"
+    ],
+    "flags": [
+      [
+        "selfRetain",
+        "true"
+      ]
+    ],
+    "description": "获得 !M! 层 咏唱 。 NL 起式 。",
+    "upgrade": "保留 。 NL 获得 !M! 层 咏唱 。 NL 起式 。",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyBeginnerChant.java",
+    "image": "roxy_beginner_chant.png"
+  },
+  {
+    "id": "startermod:RoxyBlizzardStorm",
+    "name": "吹雪",
+    "values": {
+      "COST": "2",
+      "DAMAGE": "5",
+      "FREEZE": "1",
+      "UPGRADE_DAMAGE": "3"
+    },
+    "types": [
+      "ATTACK",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "对所有敌人造成 !D! 点伤害。 NL 给予所有敌人 !M! 层 冰冻 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyBlizzardStorm.java",
+    "image": "roxy_blizzard_storm.png"
+  },
+  {
+    "id": "startermod:RoxyBlueCrystal",
+    "name": "蓝晶共鸣",
+    "values": {
+      "COST": "0",
+      "DRAW": "2",
+      "REQUIRED_CHANT": "3"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [
+      [
+        "exhaust",
+        "true"
+      ],
+      [
+        "exhaust",
+        "false"
+      ]
+    ],
+    "description": "若拥有至少 3 层 咏唱 ，抽 !M! 张牌。 NL 消耗 。",
+    "upgrade": "若拥有至少 3 层 咏唱 ，抽 !M! 张牌。",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyBlueCrystal.java",
+    "image": "roxy_blue_crystal.png"
+  },
+  {
+    "id": "startermod:RoxyBlueMeteor",
+    "name": "蓝色流星",
+    "values": {
+      "COST": "2",
+      "DAMAGE": "20"
+    },
+    "types": [
+      "ATTACK",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "造成 !D! 点伤害。 NL 弃 1 张牌。",
+    "upgrade": "造成 !D! 点伤害。",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyBlueMeteor.java",
+    "image": "roxy_blue_meteor.png"
+  },
+  {
+    "id": "startermod:RoxyBookMark",
+    "name": "课堂书签",
+    "values": {
+      "COST": "0",
+      "DRAW": "1",
+      "UPGRADE_DRAW": "1"
+    },
+    "types": [
+      "SKILL",
+      "COMMON"
+    ],
+    "flags": [
+      [
+        "selfRetain",
+        "true"
+      ],
+      [
+        "exhaust",
+        "true"
+      ]
+    ],
+    "description": "保留 。 NL 抽 !M! 张牌。 NL 消耗 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyBookMark.java",
+    "image": "roxy_book_mark.png"
+  },
+  {
+    "id": "startermod:RoxyCalmTutor",
+    "name": "冷静指导",
+    "values": {
+      "COST": "1",
+      "DRAW": "1",
+      "UPGRADE_DRAW": "1"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "抽 !M! 张牌。 NL 随机 1 张手牌本回合费用变为 0 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyCalmTutor.java",
+    "image": "roxy_calm_tutor.png"
+  },
+  {
+    "id": "startermod:RoxyChantlessWaterMagic",
+    "name": "无吟唱水魔法",
+    "values": {
+      "COST": "1",
+      "SAGE_TIME": "2"
+    },
+    "types": [
+      "SKILL",
+      "RARE"
+    ],
+    "flags": [],
+    "description": "获得 !M! 层 贤者时间 。",
+    "upgrade": "获得 !M! 层 贤者时间 。",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyChantlessWaterMagic.java",
+    "image": "roxy_chantless_water_magic.png"
+  },
+  {
+    "id": "startermod:RoxyChantShorten",
+    "name": "咏唱缩短",
+    "values": {
+      "COST": "0",
+      "CHANT": "2",
+      "UPGRADE_CHANT": "1"
+    },
+    "types": [
+      "SKILL",
+      "COMMON"
+    ],
+    "flags": [
+      [
+        "exhaust",
+        "true"
+      ]
+    ],
+    "description": "获得 !M! 层 咏唱 。 NL 起式 。 NL 消耗 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyChantShorten.java",
+    "image": "roxy_chant_shorten.png"
+  },
+  {
+    "id": "startermod:RoxyCometRain",
+    "name": "流星雨",
+    "values": {
+      "COST": "2",
+      "DAMAGE": "5",
+      "HITS": "5",
+      "MAX_CHANT_CONSUMED": "3",
+      "UPGRADE_DAMAGE": "1"
+    },
+    "types": [
+      "ATTACK",
+      "RARE"
+    ],
+    "flags": [],
+    "description": "对随机敌人造成 !D! 点伤害 !M! 次。 NL 最多消耗 3 层 咏唱 ，每层额外 1 次。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyCometRain.java",
+    "image": "roxy_comet_rain.png"
+  },
+  {
+    "id": "startermod:RoxyCrystalCharm",
+    "name": "结晶护符",
+    "values": {
+      "COST": "1",
+      "BLOCK": "5",
+      "DRAW": "1",
+      "UPGRADE_BLOCK": "3"
+    },
+    "types": [
+      "SKILL",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "获得 !B! 点 格挡 。 NL 抽 !M! 张牌。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyCrystalCharm.java",
+    "image": "roxy_crystal_charm.png"
+  },
+  {
+    "id": "startermod:RoxyCrystalDomain",
+    "name": "结晶领域",
+    "values": {
+      "COST": "2",
+      "DRAW": "1"
+    },
+    "types": [
+      "POWER",
+      "RARE"
+    ],
+    "flags": [],
+    "description": "每当你获得 咏唱 ，获得等量 格挡 。 NL 每当你消耗 咏唱 ，抽 !M! 张牌。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyCrystalDomain.java",
+    "image": "roxy_crystal_domain.png"
+  },
+  {
+    "id": "startermod:RoxyCrystalShard",
+    "name": "结晶碎片",
+    "values": {
+      "COST": "0",
+      "DAMAGE": "3",
+      "DRAW": "1",
+      "UPGRADE_DAMAGE": "2"
+    },
+    "types": [
+      "ATTACK",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "造成 !D! 点伤害。 NL 若拥有 咏唱 ，抽 !M! 张牌。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyCrystalShard.java",
+    "image": "roxy_crystal_shard.png"
+  },
+  {
+    "id": "startermod:RoxyCrystalStaff",
+    "name": "结晶法杖",
+    "values": {
+      "COST": "1",
+      "BLOCK_PER_CHANT_GAIN": "1",
+      "UPGRADE_AMOUNT": "1"
+    },
+    "types": [
+      "POWER",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "每当你获得 咏唱 ，获得 !M! 点 格挡 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyCrystalStaff.java",
+    "image": "roxy_crystal_staff.png"
+  },
+  {
+    "id": "startermod:RoxyCrystalStudy",
+    "name": "结晶研习",
+    "values": {
+      "COST": "1",
+      "DRAW_AND_CHANT": "2",
+      "UPGRADE_AMOUNT": "1"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "抽 !M! 张牌。 NL 获得 !M! 层 咏唱 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyCrystalStudy.java",
+    "image": "roxy_crystal_study.png"
+  },
+  {
+    "id": "startermod:RoxyCrystalWard",
+    "name": "结晶守护",
+    "values": {
+      "COST": "2",
+      "BLOCK": "14",
+      "ARTIFACT": "2",
+      "UPGRADE_BLOCK": "5"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "获得 !B! 点 格挡 。 NL 获得 !M! 层 人工制品 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyCrystalWard.java",
+    "image": "roxy_crystal_ward.png"
+  },
+  {
+    "id": "startermod:RoxyCumulonimbus",
+    "name": "豪雷积层云",
+    "values": {
+      "COST": "2",
+      "DAMAGE": "6",
+      "UPGRADE_DAMAGE": "3"
+    },
+    "types": [
+      "POWER",
+      "RARE"
+    ],
+    "flags": [],
+    "description": "起式 。 NL 每回合开始时，对随机敌人造成 !M! 点伤害并给予 1 层 湿润 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyCumulonimbus.java",
+    "image": "roxy_cumulonimbus.png"
+  },
+  {
+    "id": "startermod:RoxyDampCape",
+    "name": "湿润披风",
+    "values": {
+      "COST": "1",
+      "BLOCK": "6",
+      "WEAK": "1",
+      "UPGRADE_BLOCK": "3"
+    },
+    "types": [
+      "SKILL",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "获得 !B! 点 格挡 。 NL 给予所有敌人 !M! 层 虚弱 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyDampCape.java",
+    "image": "roxy_damp_cape.png"
+  },
+  {
+    "id": "startermod:RoxyDefend",
+    "name": "格挡",
+    "values": {
+      "COST": "1",
+      "BLOCK": "6",
+      "UPGRADE_BLOCK": "3"
+    },
+    "types": [
+      "SKILL",
+      "BASIC"
+    ],
+    "flags": [],
+    "description": "获得 !B! 点 格挡 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyDefend.java",
+    "image": "roxy_defend.png"
+  },
+  {
+    "id": "startermod:RoxyDrippingFocus",
+    "name": "滴水专注",
+    "values": {
+      "COST": "1",
+      "CHANT": "2"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "获得 !M! 层 咏唱 。 NL 抽 1 张牌。 NL 若手牌少于 3 张，再抽 1 张牌。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyDrippingFocus.java",
+    "image": "roxy_dripping_focus.png"
+  },
+  {
+    "id": "startermod:RoxyEchoLesson",
+    "name": "回声授课",
+    "values": {
+      "COST": "1"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [
+      [
+        "exhaust",
+        "true"
+      ]
+    ],
+    "description": "本回合下一张攻击牌或 结式 牌打出两次。 NL 消耗 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyEchoLesson.java",
+    "image": "roxy_echo_lesson.png"
+  },
+  {
+    "id": "startermod:RoxyEndlessBlue",
+    "name": "无尽苍蓝",
+    "values": {
+      "COST": "3",
+      "DAMAGE": "10",
+      "HITS": "3",
+      "CHANT_PER_EXTRA_HIT": "3",
+      "UPGRADE_DAMAGE": "3"
+    },
+    "types": [
+      "ATTACK",
+      "RARE"
+    ],
+    "flags": [],
+    "description": "造成 !D! 点伤害 !M! 次。 NL 每有 3 层 咏唱 ，额外 1 次。 NL 消耗所有 咏唱 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyEndlessBlue.java",
+    "image": "roxy_endless_blue.png"
+  },
+  {
+    "id": "startermod:RoxyFloodWall",
+    "name": "洪流壁",
+    "values": {
+      "COST": "2",
+      "BLOCK": "16",
+      "BLOCK_PER_CHANT": "2",
+      "UPGRADE_BLOCK": "4"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "获得 !B! 点 格挡 。 NL 结式 ：每有 1 层 咏唱 ，额外获得 !M! 点 格挡 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyFloodWall.java",
+    "image": "roxy_flood_wall.png"
+  },
+  {
+    "id": "startermod:RoxyFlowBarrier",
+    "name": "流动结界",
+    "values": {
+      "COST": "1",
+      "BLOCK": "9",
+      "UPGRADE_BLOCK": "3"
+    },
+    "types": [
+      "SKILL",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "获得 !B! 点 格挡 。 NL 若拥有 咏唱 ，抽 1 张牌。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyFlowBarrier.java",
+    "image": "roxy_flow_barrier.png"
+  },
+  {
+    "id": "startermod:RoxyFlowingCast",
+    "name": "流水咏唱",
+    "values": {
+      "COST": "1",
+      "BLOCK": "10",
+      "CHANT": "2",
+      "UPGRADE_BLOCK": "4"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "获得 !B! 点 格挡 。 NL 获得 !M! 层 咏唱 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyFlowingCast.java",
+    "image": "roxy_flowing_cast.png"
+  },
+  {
+    "id": "startermod:RoxyFocusedDrop",
+    "name": "凝水一击",
+    "values": {
+      "COST": "2",
+      "DAMAGE": "15",
+      "WET": "2",
+      "UPGRADE_DAMAGE": "5"
+    },
+    "types": [
+      "ATTACK",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "造成 !D! 点伤害。 NL 给予 !M! 层 湿润 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyFocusedDrop.java",
+    "image": "roxy_focused_drop.png"
+  },
+  {
+    "id": "startermod:RoxyFrostNova",
+    "name": "冰霜新星",
+    "values": {
+      "COST": "1",
+      "DAMAGE": "3",
+      "FREEZE": "2",
+      "CHANT_COST": "2",
+      "UPGRADE_CHANT_COST": "-1"
+    },
+    "types": [
+      "ATTACK",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "消耗 !M! 层 咏唱 。 NL 造成 !D! 点伤害。 NL 给予 2 层 冰冻 。 NL 结式 ：少消耗 1 层 咏唱 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyFrostNova.java",
+    "image": "roxy_frost_nova.png"
+  },
+  {
+    "id": "startermod:RoxyGrandTutor",
+    "name": "大师授课",
+    "values": {
+      "COST": "2",
+      "DRAW": "2"
+    },
+    "types": [
+      "SKILL",
+      "RARE"
+    ],
+    "flags": [
+      [
+        "exhaust",
+        "true"
+      ]
+    ],
+    "description": "升级所有手牌，本场战斗生效。 NL 抽 !M! 张牌。 NL 消耗 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyGrandTutor.java",
+    "image": "roxy_grand_tutor.png"
+  },
+  {
+    "id": "startermod:RoxyGreatFlood",
+    "name": "大瀑布",
+    "values": {
+      "COST": "3",
+      "DAMAGE": "18",
+      "CHANT_REQUIRED": "4",
+      "UPGRADE_DAMAGE": "6"
+    },
+    "types": [
+      "ATTACK",
+      "RARE"
+    ],
+    "flags": [
+      [
+        "exhaust",
+        "true"
+      ]
+    ],
+    "description": "需求 !M! 层 咏唱 。 NL 消耗需求数量，对所有敌人造成 !D! 点伤害。 NL 不足时，每缺 1 层获得 1 层 枯竭 。 NL 消耗 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyGreatFlood.java",
+    "image": "roxy_great_flood.png"
+  },
+  {
+    "id": "startermod:RoxyIcicleField",
+    "name": "冰结领域",
+    "values": {
+      "COST": "1",
+      "FREEZE": "1",
+      "UPGRADE_FREEZE": "1"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "给予所有敌人 !M! 层 冰冻 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyIcicleField.java",
+    "image": "roxy_icicle_field.png"
+  },
+  {
+    "id": "startermod:RoxyIciclePrison",
+    "name": "冰柱牢",
+    "values": {
+      "COST": "1",
+      "DAMAGE": "7",
+      "FREEZE": "1",
+      "UPGRADE_DAMAGE": "3"
+    },
+    "types": [
+      "ATTACK",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "造成 !D! 点伤害。 NL 给予 !M! 层 冰冻 。 NL 若拥有 咏唱 ，消耗 1 层 咏唱 ，额外给予 !M! 层 冰冻 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyIciclePrison.java",
+    "image": "roxy_icicle_prison.png"
+  },
+  {
+    "id": "startermod:RoxyKingClassChant",
+    "name": "王级咏唱",
+    "values": {
+      "COST": "1",
+      "CHANT": "4"
+    },
+    "types": [
+      "SKILL",
+      "RARE"
+    ],
+    "flags": [
+      [
+        "exhaust",
+        "true"
+      ]
+    ],
+    "description": "抽 2 张牌。 NL 获得 !M! 层 咏唱 。 NL 消耗 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyKingClassChant.java",
+    "image": "roxy_king_class_chant.png"
+  },
+  {
+    "id": "startermod:RoxyLabyrinthInsight",
+    "name": "迷宫洞察",
+    "values": {
+      "COST": "1",
+      "DRAW": "2",
+      "CHANT": "1",
+      "UPGRADE_DRAW": "1"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "抽 !M! 张牌。 NL 获得 1 层 咏唱 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyLabyrinthInsight.java",
+    "image": "roxy_labyrinth_insight.png"
+  },
+  {
+    "id": "startermod:RoxyLabyrinthMap",
+    "name": "迷宫地图",
+    "values": {
+      "COST": "1"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "从抽牌堆中随机将 1 张攻击牌加入手牌。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyLabyrinthMap.java",
+    "image": "roxy_labyrinth_map.png"
+  },
+  {
+    "id": "startermod:RoxyLabyrinthRescue",
+    "name": "迷宫救援",
+    "values": {
+      "COST": "2",
+      "BLOCK": "18",
+      "DRAW_AND_CHANT": "2",
+      "UPGRADE_BLOCK": "6"
+    },
+    "types": [
+      "SKILL",
+      "RARE"
+    ],
+    "flags": [],
+    "description": "获得 !B! 点 格挡 。 NL 抽 !M! 张牌。 NL 获得 !M! 层 咏唱 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyLabyrinthRescue.java",
+    "image": "roxy_labyrinth_rescue.png"
+  },
+  {
+    "id": "startermod:RoxyLessonPrep",
+    "name": "备课",
+    "values": {
+      "COST": "1",
+      "BLOCK": "8",
+      "DRAW_AND_CHANT": "1",
+      "UPGRADE_BLOCK": "3"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "获得 !B! 点 格挡 。 NL 抽 !M! 张牌。 NL 获得 !M! 层 咏唱 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyLessonPrep.java",
+    "image": "roxy_lesson_prep.png"
+  },
+  {
+    "id": "startermod:RoxyLightning",
+    "name": "雷光",
+    "values": {
+      "COST": "2",
+      "DAMAGE": "24",
+      "CHANT_REQUIRED": "3",
+      "DAMAGE_PER_WET": "5",
+      "UPGRADE_DAMAGE": "8"
+    },
+    "types": [
+      "ATTACK",
+      "RARE"
+    ],
+    "flags": [],
+    "description": "需求 !M! 层 咏唱 。 NL 结式 ：少需求 1 层 咏唱 。 NL 消耗需求数量，造成 !D! 点伤害。 NL 不足时，每缺 1 层获得 1 层 枯竭 。 NL 消耗目标全部 湿润 ，每层额外造成 5 点伤害。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyLightning.java",
+    "image": "roxy_lightning.png"
+  },
+  {
+    "id": "startermod:RoxyManaCondense",
+    "name": "魔力凝缩",
+    "values": {
+      "COST": "0",
+      "CHANT_COST": "2",
+      "ENERGY": "2"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [
+      [
+        "exhaust",
+        "true"
+      ]
+    ],
+    "description": "消耗 !M! 层 咏唱 ，获得 [E] [E] 。 NL 消耗 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyManaCondense.java",
+    "image": "roxy_mana_condense.png"
+  },
+  {
+    "id": "startermod:RoxyManaCycle",
+    "name": "魔力循环",
+    "values": {
+      "COST": "1",
+      "CHANT_PER_TURN": "1"
+    },
+    "types": [
+      "POWER",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "每回合开始时，获得 !M! 层 咏唱 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyManaCycle.java",
+    "image": "roxy_mana_cycle.png"
+  },
+  {
+    "id": "startermod:RoxyManaFocus",
+    "name": "魔力专注",
+    "values": {
+      "COST": "1",
+      "STRENGTH_AND_CHANT": "2",
+      "UPGRADE_AMOUNT": "1"
+    },
+    "types": [
+      "POWER",
+      "RARE"
+    ],
+    "flags": [],
+    "description": "获得 !M! 点 力量 。 NL 获得 !M! 层 咏唱 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyManaFocus.java",
+    "image": "roxy_mana_focus.png"
+  },
+  {
+    "id": "startermod:RoxyManaLecture",
+    "name": "魔术讲义",
+    "values": {
+      "COST": "0",
+      "DRAW": "1",
+      "CHANT": "1",
+      "UPGRADE_DRAW": "1"
+    },
+    "types": [
+      "SKILL",
+      "COMMON"
+    ],
+    "flags": [
+      [
+        "exhaust",
+        "true"
+      ]
+    ],
+    "description": "抽 !M! 张牌。 NL 复习 ：获得 1 层 咏唱 。 NL 消耗 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyManaLecture.java",
+    "image": "roxy_mana_lecture.png"
+  },
+  {
+    "id": "startermod:RoxyManaOverflow",
+    "name": "魔力满溢",
+    "values": {
+      "COST": "1",
+      "MAX_CHANT": "4",
+      "UPGRADE_MAX_CHANT": "2"
+    },
+    "types": [
+      "SKILL",
+      "RARE"
+    ],
+    "flags": [
+      [
+        "exhaust",
+        "true"
+      ]
+    ],
+    "description": "最多消耗 !M! 层 咏唱 ，获得等量能量并抽等量牌。 NL 消耗 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyManaOverflow.java",
+    "image": "roxy_mana_overflow.png"
+  },
+  {
+    "id": "startermod:RoxyManaReserve",
+    "name": "魔力储备",
+    "values": {
+      "COST": "1",
+      "CHANT": "2",
+      "NEXT_TURN_ENERGY": "2"
+    },
+    "types": [
+      "SKILL",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "获得 !M! 层 咏唱 。 NL 下回合获得 [E] [E] 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyManaReserve.java",
+    "image": "roxy_mana_reserve.png"
+  },
+  {
+    "id": "startermod:RoxyManaThread",
+    "name": "魔力细线",
+    "values": {
+      "COST": "1",
+      "CHANT": "1",
+      "ENERGY_NEXT_TURN": "1",
+      "UPGRADE_CHANT": "1"
+    },
+    "types": [
+      "SKILL",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "获得 !M! 层 咏唱 。 NL 抽 1 张牌。 NL 下回合获得 [E] 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyManaThread.java",
+    "image": "roxy_mana_thread.png"
+  },
+  {
+    "id": "startermod:RoxyManaWeave",
+    "name": "魔力编织",
+    "values": {
+      "COST": "2",
+      "DRAW": "1"
+    },
+    "types": [
+      "POWER",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "每回合第一次消耗 咏唱 时，抽 !M! 张牌。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyManaWeave.java",
+    "image": "roxy_mana_weave.png"
+  },
+  {
+    "id": "startermod:RoxyMeasuredCast",
+    "name": "精准施法",
+    "values": {
+      "COST": "2",
+      "DAMAGE": "18",
+      "CHANT": "2",
+      "UPGRADE_CHANT": "1"
+    },
+    "types": [
+      "ATTACK",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "造成 !D! 点伤害。 NL 若目标有 冰冻 ，获得 !M! 层 咏唱 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyMeasuredCast.java",
+    "image": "roxy_measured_cast.png"
+  },
+  {
+    "id": "startermod:RoxyMinorElementalMagic",
+    "name": "小型元素术",
+    "values": {
+      "COST": "1",
+      "DAMAGE": "5",
+      "DRAW": "1",
+      "UPGRADE_DAMAGE": "3"
+    },
+    "types": [
+      "ATTACK",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "造成 !D! 点伤害。 NL 抽 !M! 张牌。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyMinorElementalMagic.java",
+    "image": "roxy_minor_elemental_magic.png"
+  },
+  {
+    "id": "startermod:RoxyMistStep",
+    "name": "水雾步",
+    "values": {
+      "COST": "0",
+      "BLOCK": "4",
+      "EXTRA_BLOCK": "4",
+      "UPGRADE_BLOCK": "2"
+    },
+    "types": [
+      "SKILL",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "获得 !B! 点 格挡 。 NL 若拥有 咏唱 ，额外获得 !M! 点 格挡 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyMistStep.java",
+    "image": "roxy_mist_step.png"
+  },
+  {
+    "id": "startermod:RoxyQuietStudy",
+    "name": "安静研读",
+    "values": {
+      "COST": "1",
+      "DRAW": "2",
+      "DISCARD": "1"
+    },
+    "types": [
+      "SKILL",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "抽 !M! 张牌。 NL 弃 1 张牌。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyQuietStudy.java",
+    "image": "roxy_quiet_study.png"
+  },
+  {
+    "id": "startermod:RoxyRainShelter",
+    "name": "雨幕庇护",
+    "values": {
+      "COST": "2",
+      "BLOCK": "16",
+      "EXTRA_BLOCK": "8",
+      "UPGRADE_BLOCK": "5"
+    },
+    "types": [
+      "SKILL",
+      "RARE"
+    ],
+    "flags": [],
+    "description": "获得 !B! 点 格挡 。 NL 抽 1 张牌。 NL 若拥有 咏唱 ，消耗 1 层 咏唱 ，额外获得 !M! 点 格挡 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyRainShelter.java",
+    "image": "roxy_rain_shelter.png"
+  },
+  {
+    "id": "startermod:RoxyRainShelterPlus",
+    "name": "雨下避难",
+    "values": {
+      "COST": "2",
+      "BLOCK": "12",
+      "DRAW": "2",
+      "UPGRADE_BLOCK": "4"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "获得 !B! 点 格挡 。 NL 抽 !M! 张牌。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyRainShelterPlus.java",
+    "image": "roxy_rain_shelter_plus.png"
+  },
+  {
+    "id": "startermod:RoxyRapidChant",
+    "name": "高速咏唱",
+    "values": {
+      "COST": "0",
+      "CHANT": "3"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON",
+      "ATTACK"
+    ],
+    "flags": [
+      [
+        "exhaust",
+        "true"
+      ],
+      [
+        "exhaust",
+        "false"
+      ]
+    ],
+    "description": "获得 !M! 层 咏唱 。 NL 本回合手牌中所有攻击牌费用减少 1 。 NL 消耗 。",
+    "upgrade": "获得 !M! 层 咏唱 。 NL 本回合手牌中所有攻击牌费用减少 1 。",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyRapidChant.java",
+    "image": "roxy_rapid_chant.png"
+  },
+  {
+    "id": "startermod:RoxyRecast",
+    "name": "再咏唱",
+    "values": {
+      "COST": "1",
+      "CHANT": "1"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "从弃牌堆中随机将 1 张攻击牌放入手牌。 NL 获得 !M! 层 咏唱 。 NL 复习 ：该攻击本回合费用减少 1 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyRecast.java",
+    "image": "roxy_recast.png"
+  },
+  {
+    "id": "startermod:RoxyRiverPush",
+    "name": "河流推击",
+    "values": {
+      "COST": "1",
+      "DAMAGE": "9",
+      "DRAW": "1",
+      "UPGRADE_DAMAGE": "3"
+    },
+    "types": [
+      "ATTACK",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "造成 !D! 点伤害。 NL 若目标有 冰冻 ，抽 !M! 张牌。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyRiverPush.java",
+    "image": "roxy_river_push.png"
+  },
+  {
+    "id": "startermod:RoxySaintWaterLance",
+    "name": "圣级水枪",
+    "values": {
+      "COST": "2",
+      "DAMAGE": "12",
+      "UPGRADE_DAMAGE": "4"
+    },
+    "types": [
+      "ATTACK",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "造成 !D! 点伤害。 NL 若拥有 咏唱 ，消耗 1 层 咏唱 ，再造成一次 !D! 点伤害。 NL 结式 ：不消耗 咏唱 ，直接触发第二次伤害。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxySaintWaterLance.java",
+    "image": "roxy_saint_water_lance.png"
+  },
+  {
+    "id": "startermod:RoxySilentChant",
+    "name": "无声咏唱",
+    "values": {
+      "COST": "0",
+      "CHANT": "1"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [
+      [
+        "exhaust",
+        "true"
+      ],
+      [
+        "selfRetain",
+        "true"
+      ]
+    ],
+    "description": "本回合每打出 1 张技能牌，获得 !M! 层 咏唱 。 NL 消耗 。",
+    "upgrade": "保留 。 NL 本回合每打出 1 张技能牌，获得 !M! 层 咏唱 。 NL 消耗 。",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxySilentChant.java",
+    "image": "roxy_silent_chant.png"
+  },
+  {
+    "id": "startermod:RoxySimpleBarrier",
+    "name": "简易结界",
+    "values": {
+      "COST": "1",
+      "BLOCK": "8",
+      "UPGRADE_BLOCK": "4"
+    },
+    "types": [
+      "SKILL",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "获得 !B! 点 格挡 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxySimpleBarrier.java",
+    "image": "roxy_simple_barrier.png"
+  },
+  {
+    "id": "startermod:RoxySmallIcicle",
+    "name": "小冰锥",
+    "values": {
+      "COST": "1",
+      "DAMAGE": "6",
+      "FREEZE": "1",
+      "UPGRADE_DAMAGE": "3"
+    },
+    "types": [
+      "ATTACK",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "造成 !D! 点伤害。 NL 给予 !M! 层 冰冻 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxySmallIcicle.java",
+    "image": "roxy_small_icicle.png"
+  },
+  {
+    "id": "startermod:RoxySpellCorrection",
+    "name": "术式修正",
+    "values": {
+      "COST": "1",
+      "DRAW": "1"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "升级随机 1 张手牌，本场战斗生效。 NL 抽 !M! 张牌。 NL 复习 ：改为升级随机 2 张手牌。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxySpellCorrection.java",
+    "image": "roxy_spell_correction.png"
+  },
+  {
+    "id": "startermod:RoxyTeacherGaze",
+    "name": "老师的凝视",
+    "values": {
+      "COST": "1",
+      "WEAK": "2"
+    },
+    "types": [
+      "SKILL",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "给予 !M! 层 虚弱 。 NL 抽 1 张牌。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyTeacherGaze.java",
+    "image": "roxy_teacher_gaze.png"
+  },
+  {
+    "id": "startermod:RoxyTidalCut",
+    "name": "潮汐切割",
+    "values": {
+      "COST": "1",
+      "DAMAGE": "9",
+      "ENERGY": "1",
+      "UPGRADE_DAMAGE": "3"
+    },
+    "types": [
+      "ATTACK",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "造成 !D! 点伤害。 NL 若拥有 咏唱 ，消耗 1 层 咏唱 ，获得 [E] 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyTidalCut.java",
+    "image": "roxy_tidal_cut.png"
+  },
+  {
+    "id": "startermod:RoxyTorrentImpact",
+    "name": "激流冲击",
+    "values": {
+      "COST": "2",
+      "DAMAGE": "14",
+      "EXTRA_DAMAGE": "6",
+      "UPGRADE_DAMAGE": "5"
+    },
+    "types": [
+      "ATTACK",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "造成 !D! 点伤害。 NL 若拥有 咏唱 ，消耗 1 层 咏唱 ，额外造成 !M! 点伤害。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyTorrentImpact.java",
+    "image": "roxy_torrent_impact.png"
+  },
+  {
+    "id": "startermod:RoxyWaterBlade",
+    "name": "水刃",
+    "values": {
+      "COST": "1",
+      "DAMAGE": "8",
+      "DRAW": "1",
+      "UPGRADE_DAMAGE": "3"
+    },
+    "types": [
+      "ATTACK",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "造成 !D! 点伤害。 NL 若拥有 咏唱 ，抽 !M! 张牌。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyWaterBlade.java",
+    "image": "roxy_water_blade.png"
+  },
+  {
+    "id": "startermod:RoxyWaterBullet",
+    "name": "水弹术",
+    "values": {
+      "COST": "0",
+      "DAMAGE": "6",
+      "WET": "1",
+      "UPGRADE_DAMAGE": "3"
+    },
+    "types": [
+      "ATTACK",
+      "BASIC"
+    ],
+    "flags": [],
+    "description": "造成 !D! 点伤害。 NL 给予 !M! 层 湿润 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyWaterBullet.java",
+    "image": "roxy_water_bullet.png"
+  },
+  {
+    "id": "startermod:RoxyWaterCurtain",
+    "name": "水幕",
+    "values": {
+      "COST": "1",
+      "BLOCK": "3",
+      "DRAW": "1",
+      "UPGRADE_CHANT_BLOCK_MULTIPLIER": "2"
+    },
+    "types": [
+      "SKILL",
+      "BASIC"
+    ],
+    "flags": [],
+    "description": "获得 !B! 点 格挡 。 NL 额外获得等同于当前 咏唱 层数的 格挡 。 NL 结式 ：抽 !M! 张牌。",
+    "upgrade": "获得 !B! 点 格挡 。 NL 额外获得两倍于当前 咏唱 层数的 格挡 。 NL 结式 ：抽 !M! 张牌。",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyWaterCurtain.java",
+    "image": "roxy_water_curtain.png"
+  },
+  {
+    "id": "startermod:RoxyWaterNeedle",
+    "name": "水针",
+    "values": {
+      "COST": "0",
+      "DAMAGE": "4",
+      "DRAW": "1",
+      "UPGRADE_DAMAGE": "2"
+    },
+    "types": [
+      "ATTACK",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "造成 !D! 点伤害。 NL 若拥有 咏唱 ，抽 !M! 张牌。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyWaterNeedle.java",
+    "image": "roxy_water_needle.png"
+  },
+  {
+    "id": "startermod:RoxyWaterSaint",
+    "name": "水圣称号",
+    "values": {
+      "COST": "2",
+      "DAMAGE": "3"
+    },
+    "types": [
+      "POWER",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "每当你消耗 咏唱 ，随机敌人受到 !M! 点伤害。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyWaterSaint.java",
+    "image": "roxy_water_saint.png"
+  },
+  {
+    "id": "startermod:RoxyWaterSigil",
+    "name": "水之术印",
+    "values": {
+      "COST": "1",
+      "DAMAGE_BONUS": "2",
+      "UPGRADE_DAMAGE_BONUS": "1"
+    },
+    "types": [
+      "POWER",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "攻击牌造成的伤害增加 !M! 点。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyWaterSigil.java",
+    "image": "roxy_water_sigil.png"
+  },
+  {
+    "id": "startermod:RoxyWaterSplash",
+    "name": "水蒸",
+    "values": {
+      "COST": "1",
+      "WET": "1",
+      "DRAW": "1"
+    },
+    "types": [
+      "SKILL",
+      "COMMON"
+    ],
+    "flags": [],
+    "description": "给予所有敌人 !M! 层 湿润 。",
+    "upgrade": "给予所有敌人 !M! 层 湿润 。 NL 抽 1 张牌。",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyWaterSplash.java",
+    "image": "roxy_water_splash.png"
+  },
+  {
+    "id": "startermod:RoxyWaterWhip",
+    "name": "水鞭",
+    "values": {
+      "COST": "1",
+      "DAMAGE": "5",
+      "HITS": "2",
+      "UPGRADE_DAMAGE": "2"
+    },
+    "types": [
+      "ATTACK",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "造成 !D! 点伤害 !M! 次。 NL 若拥有 咏唱 ，额外 1 次。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyWaterWhip.java",
+    "image": "roxy_water_whip.png"
+  },
+  {
+    "id": "startermod:RoxyWaveCounter",
+    "name": "浪返",
+    "values": {
+      "COST": "1",
+      "BLOCK": "11",
+      "COUNTER_DAMAGE": "6",
+      "UPGRADE_BLOCK": "4",
+      "UPGRADE_COUNTER_DAMAGE": "2"
+    },
+    "types": [
+      "SKILL",
+      "UNCOMMON"
+    ],
+    "flags": [],
+    "description": "获得 !B! 点 格挡 。 NL 下次受到攻击伤害时，对攻击者造成 !M! 点伤害。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyWaveCounter.java",
+    "image": "roxy_wave_counter.png"
+  },
+  {
+    "id": "startermod:RoxyZeroChant",
+    "name": "零式咏唱",
+    "values": {
+      "COST": "0",
+      "CHANT": "5",
+      "UPGRADE_CHANT": "2"
+    },
+    "types": [
+      "SKILL",
+      "RARE"
+    ],
+    "flags": [
+      [
+        "exhaust",
+        "true"
+      ]
+    ],
+    "description": "获得 !M! 层 咏唱 。 NL 下回合开始时，失去所有 咏唱 。 NL 消耗 。",
+    "upgrade": "",
+    "file": "C:\\Users\\13174\\Desktop\\mod\\src\\main\\java\\startermod\\cards\\RoxyZeroChant.java",
+    "image": "roxy_zero_chant.png"
+  }
+]

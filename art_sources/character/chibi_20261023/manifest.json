@@ -1,0 +1,30 @@
+[
+  {
+    "id": "roxy_battle",
+    "alpha": true,
+    "prompt": "Use input image only for Roxy character identity and exact thick-line simple flat chibi comic drawing style. Blue hair in EXACTLY TWO chunky braids, huge dark witch hat with cream/tan band, tan cloak, cream tunic with two dark clasps, dark leggings and cream boots, silver forked staff with blue gem. Large head, tiny short 2.5-head body, simple oval blue eyes and tiny expressive mouth. Fully clothed. Flat colors with one hard shadow, clean dark outlines, no realism, no painterly lighting, no complex gradients, no text or symbols, no watermarks. Create ONE isolated game sprite on transparent background, square canvas. Whole body fully visible centered with 10% empty margin all around, both boots on same baseline. Roxy faces toward RIGHT in three-quarter view, holding staff vertically on her right, other hand at hip; confident tiny smile, relaxed ready stance. Clear clean silhouette, nothing else, no floor, no shadow, no particles. The hat, braids, staff tip and shoes must not touch any canvas edge.",
+    "source": "C:\\Users\\13174\\.codex\\generated_images\\01a169ae-e6ea-7ca0-bd74-7a8987b4d043\\exec-efcd485c-bd44-40ed-b073-10bd7a32b9dd.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "roxy_campfire",
+    "alpha": true,
+    "prompt": "Use input image only for Roxy character identity and exact thick-line simple flat chibi comic drawing style. Blue hair in EXACTLY TWO chunky braids, huge dark witch hat with cream/tan band, tan cloak, cream tunic with two dark clasps, dark leggings and cream boots, silver forked staff with blue gem. Large head, tiny short 2.5-head body, simple oval blue eyes and tiny expressive mouth. Fully clothed. Flat colors with one hard shadow, clean dark outlines, no realism, no painterly lighting, no complex gradients, no text or symbols, no watermarks. Create ONE isolated cozy rest-screen character cutout, landscape canvas and transparent background. Roxy shown from waist upward in back three-quarter view, on LEFT HALF of canvas, turns her head toward the right with calm relaxed eyes. Large floppy hat, two thick blue braids falling down the back of her tan cloak. Right half empty transparent for campfire interface. No book, no staff, no background, no floor or shadow, no lighting effects. Entire hat within canvas with margin; torso ends at bottom edge.",
+    "source": "C:\\Users\\13174\\.codex\\generated_images\\01a169ae-e6ea-7ca0-bd74-7a8987b4d043\\exec-524a374c-70a8-4470-9654-42470ffd4c6f.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "roxy_portrait",
+    "alpha": false,
+    "prompt": "Use input image only for Roxy character identity and exact thick-line simple flat chibi comic drawing style. Blue hair in EXACTLY TWO chunky braids, huge dark witch hat with cream/tan band, tan cloak, cream tunic with two dark clasps, dark leggings and cream boots, silver forked staff with blue gem. Large head, tiny short 2.5-head body, simple oval blue eyes and tiny expressive mouth. Fully clothed. Flat colors with one hard shadow, clean dark outlines, no realism, no painterly lighting, no complex gradients, no text or symbols, no watermarks. Create ONE wide 16:10 full-bleed CHARACTER SELECTION BACKGROUND illustration. Roxy on RIGHT TWO-THIRDS, big friendly chibi blue-haired witch standing on a small stone step, holding staff and waving with a smug cute smile. Her whole body visible including boots and big hat. Behind her a stylized teal magical classroom with three chunky books and a big water swirl, flat decorative shapes. LEFT THIRD left quiet and dark desaturated navy, no bright objects or character, to allow game title and stats overlay. Warm cream highlights, cheerful turquoise accents. No text, no UI.",
+    "source": "C:\\Users\\13174\\.codex\\generated_images\\01a169ae-e6ea-7ca0-bd74-7a8987b4d043\\exec-64e5d98f-744a-4d51-b302-9637aa8629c7.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "roxy_corpse",
+    "alpha": true,
+    "prompt": "Use input image only for Roxy character identity and exact thick-line simple flat chibi comic drawing style. Blue hair in EXACTLY TWO chunky braids, huge dark witch hat with cream/tan band, tan cloak, cream tunic with two dark clasps, dark leggings and cream boots, silver forked staff with blue gem. Large head, tiny short 2.5-head body, simple oval blue eyes and tiny expressive mouth. Fully clothed. Flat colors with one hard shadow, clean dark outlines, no realism, no painterly lighting, no complex gradients, no text or symbols, no watermarks. Create ONE isolated defeated game sprite on transparent background, square canvas. Roxy lies comically slumped on her side, eyes spirals simplified as small curved lines, big hat tilted over forehead, both thick braids on ground, staff laid horizontally alongside her. Non-graphic, no injuries. Whole figure fits in a wide shallow horizontal silhouette occupying central 75% width and 38% height, no clipping, no text, no stars outside body, no floor/shadow/background.",
+    "source": "C:\\Users\\13174\\.codex\\generated_images\\01a169ae-e6ea-7ca0-bd74-7a8987b4d043\\exec-41d7fad0-cc57-4883-9978-3e72eb685423.png",
+    "tool": "built-in image_gen"
+  }
+]

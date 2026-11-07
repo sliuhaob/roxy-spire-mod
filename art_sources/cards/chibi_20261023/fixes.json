@@ -1,0 +1,9 @@
+[
+  {
+    "id": "roxy_calm_tutor",
+    "name": "冷静指导",
+    "source": "C:\\Users\\13174\\.codex\\generated_images\\01a169ae-e6ea-7ca0-bd74-7a8987b4d043\\exec-5cf79205-c9b4-46d4-ab47-b2169f8064d9.png",
+    "prompt": "Precise anatomy correction. Keep this Roxy teacher illustration's exact scene, face, glasses, hat, colors, flat chibi style, book, background and composition. She currently has THREE hands: a raised hand adjusting her glasses, a raised finger at the right, and an unwanted resting hand near the lower left above the book. REMOVE the unwanted lower-left resting hand AND its extra sleeve/arm entirely. That area should simply show the cloak/torso behind the open book. Leave ONLY TWO arms: one adjusting her spectacles and one raising a finger. No other changes. No text, frame or watermark.",
+    "tool": "built-in image_gen"
+  }
+]

@@ -1,0 +1,377 @@
+{
+  "styleReference": "https://www.bilibili.com/video/BV1jJ8y6AE8h/",
+  "base": "Use case: stylized-concept. Produce ONE new finished full-bleed landscape 4:3 card illustration. The input image is the exact CHARACTER AND DRAWING STYLE reference, not an edit target. Match this funny flat chibi comic Roxy consistently: blue hair with EXACTLY TWO chunky braids (one per side), charcoal floppy witch hat with cream/tan band, tan cloak, cream tunic with two dark clasps, dark leggings, cream boots; simple silver forked staff with blue gem when needed. Thick confident slightly imperfect dark navy outlines, large simple solid oval blue eyes, tiny expressive mouth, oversized head and short 2.5-head body. Simple flat color blocks, maximum one hard shadow per surface. Sparse backgrounds, bold action silhouettes, comedic personality like 劣人TV. Do not copy the water-bullet scene. Scene: ",
+  "suffix": " Keep important elements inside central 85% for safe crop to 250x190 pixels. Make face, hands and main prop especially readable at thumbnail size. Fully clothed. No text, letters, numbers, signatures, card border, frame, UI, watermark, gradients, airbrush, 3D, realism, elaborate particles, duplicate limbs or extra braids. A SINGLE coherent scene, no panels or contact sheet.",
+  "scenes": [
+    [
+      "absolute_water",
+      "绝对水域",
+      "Roxy stands proudly with both arms spread above a miniature circular ocean, three bold rising water arches surrounding her like a throne. Confident small smile. Deep teal background, cream circle framing her hat."
+    ],
+    [
+      "aqua_cathedral",
+      "水之大圣堂",
+      "Tiny Roxy raises her staff underneath a huge protective cathedral made of three simple translucent turquoise arches. Oversized round head looks upward in delighted awe. Lavender background, pale cyan architecture."
+    ],
+    [
+      "aqua_mirror",
+      "水镜",
+      "Roxy curiously presses a fingertip against an upright oval water mirror; her simplified reflected face inside the mirror makes a silly matching expression. Only one real Roxy and one reflection. Seafoam background."
+    ],
+    [
+      "aqua_ring",
+      "水环",
+      "Roxy balances on tiptoe while a thick turquoise ring of water orbits her waist like a hula hoop. Determined eyebrows and little puffed cheeks. Pale cream backdrop, three large droplets."
+    ],
+    [
+      "beginner_chant",
+      "初级咏唱",
+      "Roxy holds an oversized open blue spellbook near her face, earnestly reading with a tiny round chanting mouth. Three simple water drops float above the book. Warm cream background, sparse teal shapes. No writing on pages."
+    ],
+    [
+      "blizzard_storm",
+      "吹雪",
+      "Roxy clutches her witch hat against a gust of swirling snow, squinting comically, staff planted firmly. Three big stylized snowflakes and a broad pale ice-blue wind ribbon sweep right. Slate-blue background."
+    ],
+    [
+      "blue_crystal",
+      "蓝晶共鸣",
+      "Roxy holds a large blue diamond crystal close to her delighted oval eyes. Three concentric bold ripple rings spread from the crystal. Indigo and soft lilac backdrop, simple flat cyan highlights."
+    ],
+    [
+      "blue_meteor",
+      "蓝色流星",
+      "Roxy points high and looks smug as one enormous round blue meteor with a wide curved water tail swoops diagonally down. Keep meteor and Roxy face both big. Dark blue sky with two cream stars."
+    ],
+    [
+      "book_mark",
+      "课堂书签",
+      "Close view of a proud Roxy lifting a fat blue book, a long teal fish-shaped bookmark dangling out. Other hand holds the ribbon. Small satisfied smile. Flat cream tabletop and dusty peach background."
+    ],
+    [
+      "calm_tutor",
+      "冷静指导",
+      "Roxy calmly adjusts tiny round teaching spectacles and raises one finger, soft half-lidded blue eyes and knowing smile. A simple blank open spellbook rests before her. Warm beige classroom shapes with teal board."
+    ],
+    [
+      "chantless_water_magic",
+      "无吟唱水魔法",
+      "Roxy holds a finger gently to her lips while effortlessly forming a little floating water fish in her other hand. Playful confident eyes. Very simple light lilac background with two cyan rings."
+    ],
+    [
+      "chant_shorten",
+      "咏唱缩短",
+      "Roxy folds a long blank accordion spell scroll into a tiny compact booklet, surprised delighted expression. Three cyan magic droplets jump out as it compresses. Cream and turquoise background. No text."
+    ],
+    [
+      "comet_rain",
+      "流星雨",
+      "Roxy lifts her staff and beams as four chunky blue comet droplets streak diagonally down across the sky. Strong repeated curved tails, three distant small monster silhouettes below. Midnight teal and pale yellow accent."
+    ],
+    [
+      "crystal_charm",
+      "结晶护符",
+      "Roxy holds up a big blue crystal pendant on a dark cord, looking reassuringly at it. A broad rounded shield outline curves around her shoulder. Pale peach background with one turquoise halo."
+    ],
+    [
+      "crystal_domain",
+      "结晶领域",
+      "Roxy sits confidently inside a ring of five chunky blue crystals emerging from the ground, hands on her knees and cheeky small grin. Isometric little crystal garden. Indigo backdrop, cream face and coat."
+    ],
+    [
+      "crystal_shard",
+      "结晶碎片",
+      "Roxy flicks a single sharp blue triangular crystal shard forward from her fingertips, mischievous focused face, large foreshortened hand. Two tiny trailing fragments. Lilac background with bold navy motion slash."
+    ],
+    [
+      "crystal_staff",
+      "结晶法杖",
+      "Roxy hugs her tall silver forked staff with its large blue crystal, proud sparkling simple eyes. Emphasize staff head and face, front three-quarter pose. Muted teal backdrop and a single cream halo."
+    ],
+    [
+      "crystal_study",
+      "结晶研习",
+      "Roxy peers through a round magnifying glass at a chunky blue crystal on a table, one eye comically enlarged by the glass. Open blank notebook. Warm tan background and cyan crystal, uncluttered."
+    ],
+    [
+      "crystal_ward",
+      "结晶守护",
+      "Roxy hides behind a huge hexagonal blue crystal shield with her eyes peeking over its top, determined little eyebrows. Three small dark arrows bounce off with flat starburst marks. Lavender background."
+    ],
+    [
+      "cumulonimbus",
+      "豪雷积层云",
+      "Roxy raises her staff with a proud open-mouth smile beneath an oversized puffy dark blue thundercloud. One simple zigzag yellow lightning bolt and several large cyan raindrops. Three layered cloud lobes, cream halo."
+    ],
+    [
+      "damp_cape",
+      "湿润披风",
+      "Roxy pulls her tan cloak up around herself like a protective shell, cheeks puffed in defiance while a few blue rain droplets bounce off its edge. Big hat, expressive eyes. Cool gray-teal backdrop."
+    ],
+    [
+      "defend",
+      "格挡",
+      "Roxy braces sideways and holds her staff across her body with both hands, squinting determinedly, her tan cloak flaring into a broad protective curve. One incoming dark stone bounces away with a cream impact star. Pale teal background."
+    ],
+    [
+      "dripping_focus",
+      "滴水专注",
+      "Roxy leans in with cross-eyed concentration at one perfectly round water droplet hovering over her index finger. One tiny sweat bead by her temple, otherwise calm simple close-up. Pale cream and cyan backdrop."
+    ],
+    [
+      "echo_lesson",
+      "回声授课",
+      "Roxy teaches with raised finger and open mouth; a single pale translucent echo silhouette of her head repeats just behind her to the right, two wide sound-wave arcs. Blank book below, lavender and teal background."
+    ],
+    [
+      "endless_blue",
+      "无尽苍蓝",
+      "Roxy stands in the lower left, dramatic determined face, directing a huge continuous looping ocean ribbon that fills the frame in a sideways infinity curve. Big simple turquoise water masses on deep navy background."
+    ],
+    [
+      "flood_wall",
+      "洪流壁",
+      "Roxy plants her staff and braces behind a towering rectangular wall of water with a curling foamy top. Her face peeks from the left edge, one nervous sweat drop. Strong turquoise wall, pale sandy ground."
+    ],
+    [
+      "flow_barrier",
+      "流动结界",
+      "Roxy crouches inside a smooth oval loop of circulating water, watching a little pebble harmlessly slide around its surface. One hand holds her hat. Soft cream background, teal oval and clear silhouette."
+    ],
+    [
+      "flowing_cast",
+      "流水咏唱",
+      "Roxy reads a blank open spellbook while a ribbon of water flows smoothly from its pages around her arm. Calm chanting mouth, confident half-lidded eyes. Pale blue backdrop and bold looping cyan ribbon."
+    ],
+    [
+      "focused_drop",
+      "凝水一击",
+      "Roxy squeezes a large round water ball between both palms then thrusts it forward, comically focused narrowed eyes. The ball has a heavy dark outline and one cream highlight. Simple teal speed lines."
+    ],
+    [
+      "frost_nova",
+      "冰霜新星",
+      "Roxy stomps her staff down with a fierce tiny shouting face as a large six-pointed burst of ice expands outward from her feet. Broad crystalline wedges, simple snowflake center. Dark indigo and icy cyan."
+    ],
+    [
+      "grand_tutor",
+      "大师授课",
+      "Roxy stands on a tiny stool, confidently presenting three floating blank books as if teaching a masterclass, tiny round glasses and a proud smile. Tan classroom background with broad teal board, no writing."
+    ],
+    [
+      "great_flood",
+      "大瀑布",
+      "Roxy in lower left directs a gigantic curling waterfall spilling from above and crashing in a bold white-cyan foam shape to the right. Her hat bends in wind and eyes are intense. Simple deep blue backdrop."
+    ],
+    [
+      "icicle_field",
+      "冰结领域",
+      "Roxy balances on an ice floe among five big blunt angular ice pillars, cold breath a simple cream puff, pleased mischievous smile. Pale lilac sky and navy ground. Big clean crystal shapes."
+    ],
+    [
+      "icicle_prison",
+      "冰柱牢",
+      "Roxy points sternly at a small cartoon round gray monster trapped between three thick ice pillars. Monster has only two dot eyes and comic shiver marks. Roxy face prominent, icy cyan and purple backdrop."
+    ],
+    [
+      "king_class_chant",
+      "王级咏唱",
+      "Roxy lifts a massive blank open spellbook above her head, determined eyes, three cyan magic rings stack upward like a crown. Her hat and two braids clearly visible. Deep royal blue backdrop with cream accent."
+    ],
+    [
+      "labyrinth_insight",
+      "迷宫洞察",
+      "Roxy touches her chin while looking at a simple miniature maze model, one large cyan lightbulb-like water drop pops above her hat as she has an idea. Warm tan maze and muted teal backdrop. No text."
+    ],
+    [
+      "labyrinth_map",
+      "迷宫地图",
+      "Roxy holds an oversized unfolded parchment map almost as wide as her body, peers over its top with curious blue eyes, points at one big blue path bend. Map uses simple unlabeled lines. Soft peach background."
+    ],
+    [
+      "labyrinth_rescue",
+      "迷宫救援",
+      "Roxy reaches one hand forward toward viewer while her other hand holds her staff, worried determined eyebrows, a protective water arch behind her in a simple stone corridor. Dynamic heroic chibi pose, teal and warm beige."
+    ],
+    [
+      "lesson_prep",
+      "备课",
+      "Roxy sits at a desk stacking three chunky blue books and arranging a quill, determined concentrated face, one loose blank page under her elbow. Warm cream and tan classroom palette with cyan accents."
+    ],
+    [
+      "lightning",
+      "雷光",
+      "Roxy thrusts her staff toward a puddle and releases one bold jagged golden lightning bolt. Her eyes narrowed in fierce concentration, hat and two braids swept back. Huge readable zigzag, deep indigo and turquoise water."
+    ],
+    [
+      "mana_condense",
+      "魔力凝缩",
+      "Roxy squishes three floating blue magic wisps between her palms into one tiny dense bright cyan orb, comically strained cheeks. Two strong inward curved motion marks. Simple lavender background."
+    ],
+    [
+      "mana_cycle",
+      "魔力循环",
+      "Roxy serenely holds her palms apart while a large circular cyan water ribbon loops from one palm to the other around her shoulders. Relaxed closed smile, two arrows implied by flowing shapes. Deep teal backdrop."
+    ],
+    [
+      "mana_focus",
+      "魔力专注",
+      "Close view of Roxy staring intensely at the blue gem on her staff held upright in front of her, eyebrows narrowed, a single clean cyan halo behind her head. Cream face, navy hat, minimal lilac background."
+    ],
+    [
+      "mana_lecture",
+      "魔术讲义",
+      "Roxy proudly presents a large open cream notebook with three simple water-drop diagrams and no letters, teacher smile and one raised finger. Soft warm tan classroom backdrop with muted cyan board."
+    ],
+    [
+      "mana_overflow",
+      "魔力满溢",
+      "Roxy holds a blue crystal that gushes too much water magic upward like a fountain, startled huge oval eyes and tiny shocked mouth, sleeves flapping. Big foamy cyan fountain, deep teal background."
+    ],
+    [
+      "mana_reserve",
+      "魔力储备",
+      "Roxy carefully places a glowing blue droplet into a stout glass jar filled with three larger magic droplets, satisfied careful smile. Jar large foreground, pale cream desk, soft teal background."
+    ],
+    [
+      "mana_thread",
+      "魔力细线",
+      "Roxy delicately pulls a thin bright cyan magical thread between two fingertips, squinting with funny concentration, thread forms one small loop. Face and hands close-up, dark blue background for clarity."
+    ],
+    [
+      "mana_weave",
+      "魔力编织",
+      "Roxy knits a small square net of cyan magical threads with two short crystal needles, unexpectedly serious focused face. Just four broad crossing strands, no complex pattern. Pale lavender and cream background."
+    ],
+    [
+      "measured_cast",
+      "精准施法",
+      "Roxy peers along her raised staff like a measuring ruler, one eye closed, carefully aiming a narrow water dart at a single floating ice crystal. Clear left-to-right composition, cream background and teal targeting arcs without symbols."
+    ],
+    [
+      "minor_elemental_magic",
+      "小型元素术",
+      "Roxy holds out her palm, delighted by one tiny floating ice cube and one round water drop circling just above it. Her face huge and curious, very simple two-object magic. Pale yellow and teal backdrop."
+    ],
+    [
+      "mist_step",
+      "水雾步",
+      "Roxy darts lightly sideways, lifting one boot as a broad cloud of turquoise mist swirls around her ankles; one simple fading outline behind her suggests speed. Playful determined smile, muted lilac background."
+    ],
+    [
+      "quiet_study",
+      "安静研读",
+      "Roxy curled comfortably in an oversized chair with a blue book and a warm cup on a small table, peaceful half-lidded eyes. Hat still on, both braids visible. Cozy tan and cream shapes with muted teal."
+    ],
+    [
+      "rain_shelter",
+      "雨幕庇护",
+      "Roxy raises her staff to form a round water umbrella above her hat, looking up with pleased smile while three big raindrops slide off. Simple curved cyan canopy, slate-blue rainy backdrop."
+    ],
+    [
+      "rain_shelter_plus",
+      "雨下避难",
+      "Roxy shelters under a stone arch hugging a warm mug, looking contentedly at rain outside, her hat tip dripping. Close cozy composition, warm cream arch and muted blue rainy exterior."
+    ],
+    [
+      "rapid_chant",
+      "高速咏唱",
+      "Roxy reads a book so quickly three blank pages fly around her, eyes squeezed with fierce concentration and mouth a comical tiny oval, thick sweeping motion lines. Turquoise and cream background."
+    ],
+    [
+      "recast",
+      "再咏唱",
+      "Roxy retrieves a slightly crumpled blank spell page from a basket with a determined little smile while a broad cyan return-loop curls around her hand. Tan desk, pale lilac background, no writing."
+    ],
+    [
+      "river_push",
+      "河流推击",
+      "Roxy shoves both palms forward and sends a wide low river wave pushing a round gray monster backward with comic surprise eyes. Strong horizontal turquoise water band, cream foam, navy backdrop."
+    ],
+    [
+      "saint_water_lance",
+      "圣级水枪",
+      "Roxy lunges with her staff, projecting a long sharp turquoise water lance with a big diamond tip and two layered stream tails. Determined narrowed eyes. Diagonal heroic composition, dark royal blue background."
+    ],
+    [
+      "silent_chant",
+      "无声咏唱",
+      "Roxy closes her eyes in calm concentration, lips closed, three small cyan rings hovering around her gently raised hands. A tiny folded blue book below. Minimal cream and muted teal backdrop."
+    ],
+    [
+      "simple_barrier",
+      "简易结界",
+      "Roxy draws one small square water shield in the air with a finger, squinting at its slightly crooked corner, cute satisfied expression. Large flat translucent cyan pane with dark contour. Warm cream background."
+    ],
+    [
+      "small_icicle",
+      "小冰锥",
+      "Roxy pinches one tiny pointed ice cone between gloved fingertips with an impish grin, then flicks it right with a broad simple motion arc. Her face and cone large in close-up, pale lavender background."
+    ],
+    [
+      "spell_correction",
+      "术式修正",
+      "Roxy leans over a blank spell page and uses a quill to fix a crooked simple water-drop diagram into a neat one, stern teacher eyebrows and tiny glasses. Warm beige desk with teal book. No words."
+    ],
+    [
+      "teacher_gaze",
+      "老师的凝视",
+      "Extreme expressive close-up of Roxy's unimpressed half-lidded blue eyes under her huge dark witch hat, arms crossed, tiny pursed mouth. Two simple navy stress lines in a pale cyan background. Funny stern teacher portrait."
+    ],
+    [
+      "tidal_cut",
+      "潮汐切割",
+      "Roxy sweeps her staff across her body, sending one huge crescent-shaped teal water edge diagonally upward, mischievous concentrated face. Broad cream foam accent, dark blue backdrop, clean action silhouette."
+    ],
+    [
+      "torrent_impact",
+      "激流冲击",
+      "Roxy plants both boots and fires a thick compact water jet from her staff, cheeks puffed, the jet collides with one dark stone in a chunky cyan splash. Pale cream background with three teal speed streaks."
+    ],
+    [
+      "water_blade",
+      "水刃",
+      "Roxy raises one hand and forms a short curved blade of turquoise water just above her palm, confident little smirk. Prominent face, wide crescent blade with cream edge. Lavender backdrop and navy action arc."
+    ],
+    [
+      "water_curtain",
+      "水幕",
+      "Roxy peeks out from behind a thick hanging curtain of turquoise water, holding one watery edge aside like a stage curtain, cheeky reassuring smile. Big rounded water folds, cream foam top, deep teal backdrop."
+    ],
+    [
+      "water_needle",
+      "水针",
+      "Roxy squints with one eye and carefully flicks one slender cyan water needle from a fingertip, sharp clean pointed silhouette and two little droplets. Face and hand large, pale cream and navy diagonal backdrop."
+    ],
+    [
+      "water_saint",
+      "水圣称号",
+      "Roxy stands proudly with hands on hips, a broad turquoise wave halo behind her hat and three simple cream sparkle marks, trying to look dignified with a tiny smug smile. Dark royal blue background."
+    ],
+    [
+      "water_sigil",
+      "水之术印",
+      "Roxy presses her palm onto a large floating round cyan seal containing only one stylized water-drop pictogram and concentric circles. Serious focused face. Indigo background, cream coat and bold teal seal."
+    ],
+    [
+      "water_splash",
+      "水蒸",
+      "Roxy conjures a big puffy cloud of cool turquoise steam around two tiny gray monster silhouettes, holding her nose with a funny scrunched expression. Broad rounded mist shapes and simple droplets, pale lavender backdrop."
+    ],
+    [
+      "water_whip",
+      "水鞭",
+      "Roxy swings a long looping ribbon of water from her staff like a lasso, leaning back with cheeky fierce eyebrows. One big S-shaped turquoise whip across frame, cream splash tips, dark teal backdrop."
+    ],
+    [
+      "wave_counter",
+      "浪返",
+      "Roxy braces behind a small incoming wave that curls back around into a larger returning wave, she looks smug with one raised eyebrow. Two distinct cream-tipped turquoise curves, simple navy background."
+    ],
+    [
+      "zero_chant",
+      "零式咏唱",
+      "Roxy snaps her fingers and a large single cyan magic ring pops into being instantly, startled pleased expression, hat tipped slightly. Three bold comic burst marks, soft cream and lavender background."
+    ]
+  ]
+}

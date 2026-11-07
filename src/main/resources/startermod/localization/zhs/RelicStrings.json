@@ -1,0 +1,73 @@
+{
+  "startermod:RoxyManaCrystal": {
+    "NAME": "洛琪希的魔力结晶",
+    "FLAVOR": "清澈的蓝色结晶中，流动着稳定而温柔的魔力。",
+    "DESCRIPTIONS": [
+      "每回合第一次消耗 接续 时，获得 [E] 。"
+    ]
+  },
+  "startermod:RoxyChantPrimer": {
+    "NAME": "初级咏唱讲义",
+    "FLAVOR": "边角已经翻卷，但最重要的音节被洛琪希反复圈了出来。",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，获得 #b2 层 咏唱 。"
+    ]
+  },
+  "startermod:RoxyTeachingPointer": {
+    "NAME": "洛琪希的教鞭",
+    "FLAVOR": "不需要很响，学生也会立刻坐直。",
+    "DESCRIPTIONS": [
+      "每打出 #b",
+      " 张技能牌，获得 #b1 层 咏唱 。"
+    ]
+  },
+  "startermod:RoxyHydraulicSeal": {
+    "NAME": "水压术印",
+    "FLAVOR": "把溢散的魔力重新压回术式循环中。",
+    "DESCRIPTIONS": [
+      "每回合第一次消耗 咏唱 时，抽 #b1 张牌。"
+    ]
+  },
+  "startermod:RoxyTravelFlask": {
+    "NAME": "旅行药瓶",
+    "FLAVOR": "适合长途迷宫探索，也适合不放心学生独自出门。",
+    "DESCRIPTIONS": [
+      "获得 #b1 个药水栏位。"
+    ]
+  },
+  "startermod:RoxyManaCrystalCore": {
+    "NAME": "洛琪希的魔力晶核",
+    "FLAVOR": "被反复打磨后的蓝色结晶，像一枚安静运转的微型魔术阵。",
+    "DESCRIPTIONS": [
+      "每回合第一次消耗 接续 时，获得 [E] 并获得 #b1 层 咏唱 。"
+    ]
+  },
+  "startermod:RoxyWaterSigilRelic": {
+    "NAME": "水之护符",
+    "FLAVOR": "简洁的护符上刻着水圣级魔术的入门线条。",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，给予所有敌人 #b1 层 冰冻 。"
+    ]
+  },
+  "startermod:RoxyLessonNotebook": {
+    "NAME": "备课笔记",
+    "FLAVOR": "每一页都有批注，连失败案例也被认真整理。",
+    "DESCRIPTIONS": [
+      "每场战斗中，第一次打出 技能牌 时，获得 #b1 层 咏唱 并抽 #b1 张牌。"
+    ]
+  },
+  "startermod:RoxyClearWaterPendant": {
+    "NAME": "清水坠饰",
+    "FLAVOR": "其中封着一滴不会浑浊的水。",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，获得 #b1 层 人工制品 和 #b1 层 咏唱 。"
+    ]
+  },
+  "startermod:RoxyMilisCharm": {
+    "NAME": "米里斯护符",
+    "FLAVOR": "远行时收到的小护符，虽然朴素，却很可靠。",
+    "DESCRIPTIONS": [
+      "每当你使用药水时，获得 #b2 层 咏唱 。"
+    ]
+  }
+}

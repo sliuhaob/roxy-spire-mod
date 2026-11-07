@@ -1,0 +1,7 @@
+{
+  "id": "roxy_button",
+  "alpha": true,
+  "prompt": "Create one square transparent-background character selection icon. Use input image as Roxy identity and thick-outline flat comic style reference. A single centered circular navy medallion with a thick muted gold rim, containing a close-up head-and-shoulders portrait of chibi Roxy: blue hair, exactly two short visible braids, large floppy charcoal witch hat with cream and tan band, simple big solid oval blue eyes, tiny confident smiling mouth, tan cloak and cream collar. Hat stays entirely within the circle. Flat color regions with one hard shadow, bold clean outlines, extremely readable at 150 pixels. Circle centered and occupying 75 percent of canvas width, transparent space outside circle, no letters, no words, no UI, no water splash, no staff, no gradients, no watermark.",
+  "source": "C:\\Users\\13174\\.codex\\generated_images\\01a169ae-e6ea-7ca0-bd74-7a8987b4d043\\exec-368bc013-4050-4261-81da-bf1756ae12f0.png",
+  "tool": "built-in image_gen"
+}

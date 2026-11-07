@@ -1,0 +1,50 @@
+[
+  {
+    "id": "roxy_water_bullet",
+    "source": "C:\\Users\\13174\\.codex\\generated_images\\01a169ae-e6ea-7ca0-bd74-7a8987b4d043\\exec-01f869da-61c5-42e6-895b-8467a127b1a1.png",
+    "prompt": "Use case: precise-object-edit. Edit target: the supplied water-projectile fantasy card painting. Remove the entire person on the left including their face, hair, hand, hat and clothing. Fill that area with the continuing dark ruined stone hallway and cyan magical particles. Keep the magnificent central turquoise water sphere, its flowing ribbons, diagonal motion, palette, brushwork and lighting. The staff may be removed as well. The result depicts ONLY a magical water projectile in a dungeon, with no character, no body parts, no text and no border. Retain landscape 4:3 framing.",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "roxy_defend",
+    "source": "C:\\Users\\13174\\.codex\\generated_images\\01a169ae-e6ea-7ca0-bd74-7a8987b4d043\\exec-970fbd41-cd7c-477e-a40d-09667a85b07c.png",
+    "prompt": "Use case: stylized-concept. Asset type: Slay the Spire Roxy mod card illustration. Create premium painterly fantasy game card art, landscape 4:3. Strong readable silhouette at 250x190, midnight navy shadows, luminous turquoise/cyan water magic, restrained silver and warm gold, dramatic light and tangible brush texture. Full bleed, no border, no lettering, no watermark. Central 80 percent crop-safe. Scene: A compact sturdy round magical shield made of translucent blue water and a fine silver rim hovering above old stone paving. One arrow visibly stopped against its center with small water droplets. Dark quiet dungeon backdrop, strong central shield silhouette. No people, faces, hands or lettering.",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "roxy_beginner_chant",
+    "source": "C:\\Users\\13174\\.codex\\generated_images\\01a169ae-e6ea-7ca0-bd74-7a8987b4d043\\exec-49814906-e56e-448b-81a5-d25b5dcb65a0.png",
+    "prompt": "Use case: stylized-concept. Asset type: Slay the Spire Roxy mod card illustration. Create a premium hand-painted fantasy game card art, landscape 4:3, deep midnight navy, luminous cyan and restrained gold. Painterly brushwork, graphic readable silhouette and dramatic lighting at 250x190 pixels. Full bleed; no border, no text, no watermark. Center the key subject with cropping safety. Scene: An open well-used wizard textbook on a weathered wooden desk. A simple circular cyan magic sigil of concentric circles with no legible writing floats above the pages. A silver staff with blue crystal leans nearby, candlelight on the warm parchment edges. Luminous central magical ring clearly readable. NO people or faces.",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "roxy_water_curtain",
+    "source": "C:\\Users\\13174\\.codex\\generated_images\\01a169ae-e6ea-7ca0-bd74-7a8987b4d043\\exec-bac965db-2812-4f82-a3ff-d1713cd3ed9b.png",
+    "prompt": "Use case: stylized-concept. Asset type: Slay the Spire Roxy mod card illustration. Create premium painterly fantasy game card art, landscape 4:3. Strong readable silhouette at 250x190, midnight navy shadows, luminous turquoise/cyan water magic, restrained silver and warm gold, dramatic light and tangible brush texture. Full bleed, no border, no lettering, no watermark. Central 80 percent crop-safe. Scene: A broad curved translucent curtain of flowing turquoise water protecting a small campsite in an ancient stone corridor, several incoming arrows halted in the rippling water, delicate gold magic circle on the ground. The wave wall is the central focus. No people, faces, hands or text.",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "roxy_frost_nova",
+    "source": "C:\\Users\\13174\\.codex\\generated_images\\01a169ae-e6ea-7ca0-bd74-7a8987b4d043\\exec-d28a59ec-36d4-4072-b341-e76354ba082b.png",
+    "prompt": "Use case: stylized-concept. Asset type: Slay the Spire Roxy mod card illustration. Create premium painterly fantasy game card art, landscape 4:3. Strong readable silhouette at 250x190, midnight navy shadows, luminous turquoise/cyan water magic, restrained silver and warm gold, dramatic light and tangible brush texture. Full bleed, no border, no lettering, no watermark. Central 80 percent crop-safe. Scene: A huge sharp faceted ice crystal erupting from the center of a luminous frost ring on wet dark stone, starburst of jagged frost shards radiating outward, cold cyan and white contrasted with midnight navy. No people, faces, hands or text.",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "roxy_water_splash",
+    "source": "C:\\Users\\13174\\.codex\\generated_images\\01a169ae-e6ea-7ca0-bd74-7a8987b4d043\\exec-cf7ba68e-e7b6-47c9-95ee-5c1dd23014c2.png",
+    "prompt": "Use case: stylized-concept. Asset type: Slay the Spire Roxy mod card illustration. Create premium painterly fantasy game card art, landscape 4:3. Strong readable silhouette at 250x190, midnight navy shadows, luminous turquoise/cyan water magic, restrained silver and warm gold, dramatic light and tangible brush texture. Full bleed, no border, no lettering, no watermark. Central 80 percent crop-safe. Scene: A dense curling wave of turquoise water vapor sweeping through an ancient dungeon corridor, many suspended round water droplets catching a restrained warm light, liquid mist expands across the whole scene. Focus on water and steam, no ice, no people, faces, hands or text.",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "roxy_cumulonimbus",
+    "source": "C:\\Users\\13174\\.codex\\generated_images\\01a169ae-e6ea-7ca0-bd74-7a8987b4d043\\exec-4e05d763-c073-47b4-8172-0b5b485e6b83.png",
+    "prompt": "Use case: stylized-concept. Asset type: finished Slay the Spire Roxy mod card illustration. Create a new premium hand-painted fantasy card art, landscape 4:3 composition, rich deep midnight navy, luminous cyan water magic and restrained warm gold accents. Painterly brush texture, crisp focal silhouette, dramatic light, strong readable values at 250x190 pixels. Full bleed with no border, no lettering, no icons, no watermark. Keep important focal content inside central 80 percent for crop. Scene: A towering anvil-shaped thundercloud gathering over a rain-soaked grassland, cyan rain curtains and subtle gold lightning deep inside the clouds. Tiny silhouette of a blue-haired witch with a black pointed hat and tan cloak holds a staff at the bottom, dwarfed by the majestic cloud. The cloud is the main subject.",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "roxy_lightning",
+    "source": "C:\\Users\\13174\\.codex\\generated_images\\01a169ae-e6ea-7ca0-bd74-7a8987b4d043\\exec-01db1137-5a30-48c8-9cd2-9e7691ba09de.png",
+    "prompt": "Use case: stylized-concept. Asset type: Slay the Spire Roxy mod card illustration. Create a premium hand-painted fantasy game card art, landscape 4:3, deep midnight navy, luminous cyan and restrained gold. Painterly brushwork, graphic readable silhouette and dramatic lighting at 250x190 pixels. Full bleed; no border, no text, no watermark. Center the key subject with cropping safety. Scene: One brilliant concentrated white-gold lightning spear piercing down from a spiraling blue thundercloud into a dark pool, exploding crown of cyan water at impact, monumental scale, dynamic diagonal composition. NO people, NO human faces, NO hands.",
+    "tool": "built-in image_gen"
+  }
+]

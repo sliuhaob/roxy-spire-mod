@@ -1,0 +1,17 @@
+{
+  "version": "0.2.1",
+  "date": "2026-10-23",
+  "cardOriginals": 75,
+  "cardResources": 150,
+  "characterOriginals": 5,
+  "characterResources": 7,
+  "build": "passed",
+  "resourceAudit": "passed",
+  "packagedResourceHashes": "passed",
+  "installedHashMatches": true,
+  "sha256": "B9FED96D39C75B5D548D325A680C24247836FC3C51C70761D3E456D7F6CC7A0E",
+  "bytes": 38053970,
+  "mechanicsAssertionsPreviouslyPassed": 403,
+  "mechanicsTestVersion": "0.2.0",
+  "realGameUiTested": false
+}

@@ -1,0 +1,24 @@
+{
+  "startermod:RoxyChantPotion": {
+    "NAME": "咏唱药水",
+    "DESCRIPTIONS": [
+      "获得 #b",
+      " 层 咏唱 。"
+    ]
+  },
+  "startermod:RoxyWaterBarrierPotion": {
+    "NAME": "冰幕药水",
+    "DESCRIPTIONS": [
+      "获得 #b",
+      " 点 格挡 。 NL 给予所有敌人 #b",
+      " 层 冰冻 。"
+    ]
+  },
+  "startermod:RoxySageTimePotion": {
+    "NAME": "贤者药水",
+    "DESCRIPTIONS": [
+      "获得 #b",
+      " 层 贤者时间 。"
+    ]
+  }
+}

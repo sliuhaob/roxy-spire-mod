@@ -1,0 +1,12 @@
+build/
+*.class
+*.jar
+
+# Local backups (kept on disk, not uploaded)
+*.zip
+
+# Office lock files
+~$*
+
+# Generated spreadsheet inspection dumps
+*.inspect.ndjson

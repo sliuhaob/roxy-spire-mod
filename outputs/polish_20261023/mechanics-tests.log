@@ -1,0 +1,13 @@
+17:34:09.840 INFO helpers.ImageMaster> [WARNING] No image at images/ui/potionPopUp/potionSelectBox.png
+17:34:09.842 INFO panels.TopPanel> Twitch Integration disabled due to missing 'twitch.properties` file.
+17:34:09.860 INFO helpers.ImageMaster> [WARNING] No image at images/ui/cardlibrary/selectBox.png
+17:34:09.868 INFO core.DisplayConfig> Reading info.displayconfig
+17:34:09.869 INFO core.DisplayConfig> File info.displayconfig not found, creating with defaults.
+17:34:09.869 INFO core.DisplayConfig> Creating new config with default values...
+17:34:09.874 INFO core.DisplayConfig> DisplayConfig successfully read.
+17:34:09.882 INFO helpers.ImageMaster> [WARNING] No image at images/ui/map/selectBox.png
+17:34:09.883 INFO helpers.ImageMaster> [WARNING] No image at images/ui/map/mapTop.png
+17:34:09.883 INFO helpers.ImageMaster> [WARNING] No image at images/ui/map/mapMid.png
+17:34:09.884 INFO helpers.ImageMaster> [WARNING] No image at images/ui/map/mapBot.png
+17:34:09.884 INFO helpers.ImageMaster> [WARNING] No image at images/ui/map/mapBlend.png
+PASS: 403 engine-backed mechanics assertions (GPU rendering excluded).

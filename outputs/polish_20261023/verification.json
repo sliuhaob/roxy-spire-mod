@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "date": "2026-10-23",
+  "mechanicsAssertions": 403,
+  "cards": 75,
+  "relics": 10,
+  "potions": 3,
+  "cardImages": 150,
+  "redrawnCards": 8,
+  "overviewUpdatedRowsEach": 14,
+  "installedJar": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\SlayTheSpire\\mods\\StarterMod.jar",
+  "sha256": "D5797FBCE1E65086B9E51A17AE5C0F55E08E1C93C4E617536EA9D05FB16877D3",
+  "gameplayTested": false,
+  "sourceBackup": "before-polish.zip",
+  "installedBackup": "StarterMod-before.jar"
+}
