@@ -56,7 +56,7 @@
   },
   "roxymod:RoxyCrystalDomain": {
     "NAME": "结晶领域",
-    "DESCRIPTION": "每获得 1 层 咏唱 ，获得 !M! 点 格挡 。 NL 每回合首次消耗 咏唱 时，抽 !M! 张牌。"
+    "DESCRIPTION": "每获得 1 层 咏唱 ，获得 !M! 点 格挡 。 NL 每回合首次消耗 咏唱 时 NL 抽 !M! 张牌。"
   },
   "roxymod:RoxyCrystalShard": {
     "NAME": "结晶碎片",
@@ -128,7 +128,7 @@
   },
   "roxymod:RoxyLightning": {
     "NAME": "雷光",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗全部 湿润 ，每层使本次基础伤害增加 5 。 NL 需求 !M! 层 咏唱 ，不足部分获得 枯竭 。 NL 结式 ：需求减少 1 。"
+    "DESCRIPTION": "造成 !D! 点伤害， NL 每层 湿润 +5 并消耗。 NL 需求 !M! 层 咏唱 ， NL 不足部分获得 枯竭 。 NL 结式 ：需求减少 1 。"
   },
   "roxymod:RoxyLabyrinthInsight": {
     "NAME": "迷宫洞察",
@@ -228,7 +228,7 @@
   },
   "roxymod:RoxySaintWaterLance": {
     "NAME": "圣级水枪",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 若拥有 咏唱 ，消耗 1 层 咏唱 ，再造成一次 !D! 点伤害。 NL 结式 ：不消耗 咏唱 ，直接触发第二次伤害。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 若拥有 咏唱 ，消耗 1 层 NL 再造成 !D! 点伤害。 NL 结式 ：无需 咏唱 。"
   },
   "roxymod:RoxySilentChant": {
     "NAME": "无声咏唱",
@@ -283,7 +283,7 @@
   },
   "roxymod:RoxyWaterNeedle": {
     "NAME": "水针",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 若拥有 咏唱 ，消耗 1 层，抽 !M! 张牌。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 若拥有 咏唱 ，消耗 1 层 NL 并抽 !M! 张牌。"
   },
   "roxymod:RoxyWaterSaint": {
     "NAME": "水圣称号",

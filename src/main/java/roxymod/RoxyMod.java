@@ -19,6 +19,7 @@ import roxymod.characters.Roxy;
 import roxymod.cards.*;
 import roxymod.potions.*;
 import roxymod.relics.*;
+import roxymod.util.DevCombatLog;
 
 @SpireInitializer
 public class RoxyMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostInitializeSubscriber {
@@ -44,6 +45,7 @@ public class RoxyMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     @Override
     public void receivePostInitialize() {
         registerPotions();
+        DevCombatLog.register();
         System.out.println("[RoxyMod] Loaded successfully.");
     }
 
@@ -258,7 +260,7 @@ public class RoxyMod implements EditCardsSubscriber, EditCharactersSubscriber, E
             null,
             "冰冻",
             new String[] {"冰冻"},
-            "每个怪物拥有独立的冰冻计数器，初始为 3。冰冻达到计数器时，跳过其回合，移除等同计数器的冰冻，计数器随后增加 1。",
+            "每个怪物拥有独立的冰冻计数器，初始为 3。冰冻达到计数器时，其意图显示为击晕，跳过其下个回合，原定行动顺延；随后移除等同计数器的冰冻，计数器增加 1。",
             freezeColor
         );
     }

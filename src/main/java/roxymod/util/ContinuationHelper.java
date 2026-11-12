@@ -23,6 +23,7 @@ public final class ContinuationHelper {
         if (player == null) {
             return;
         }
+        DevCombatLog.continuation("grant");
         AbstractDungeon.actionManager.addToBottom(
             new ApplyPowerAction(player, player, new ContinuationPower(player), 1)
         );
@@ -36,6 +37,7 @@ public final class ContinuationHelper {
         AbstractPower continuation = player.getPower(ContinuationPower.POWER_ID);
         continuation.flash();
         continuation.amount = 0;
+        DevCombatLog.continuation("consume");
         AbstractDungeon.actionManager.addToTop(
             new RemoveSpecificPowerAction(player, player, ContinuationPower.POWER_ID)
         );

@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import roxymod.RoxyMod;
 import roxymod.util.PowerIconHelper;
+import roxymod.util.DevCombatLog;
 
 public class ContinuationPower extends AbstractPower {
     public static final String POWER_ID = RoxyMod.makeID("Continuation");
@@ -34,6 +35,9 @@ public class ContinuationPower extends AbstractPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer) {
+            if (this.amount > 0) {
+                DevCombatLog.continuation("expire");
+            }
             this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         }
     }

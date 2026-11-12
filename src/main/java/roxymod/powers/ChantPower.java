@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import roxymod.RoxyMod;
 import roxymod.relics.RoxyChantConsumedRelic;
 import roxymod.util.PowerIconHelper;
+import roxymod.util.DevCombatLog;
 
 public class ChantPower extends AbstractPower {
     public static final String POWER_ID = RoxyMod.makeID("Chant");
@@ -42,6 +43,7 @@ public class ChantPower extends AbstractPower {
             chantGained += sageTimeBonus;
             this.updateDescription();
         }
+        DevCombatLog.chantGained(this.owner, chantGained, this.amount);
         this.triggerCrystalStaff(chantGained);
     }
 
@@ -49,11 +51,13 @@ public class ChantPower extends AbstractPower {
     public void stackPower(int stackAmount) {
         int chantGained = stackAmount + SageTimePower.getBonusChant(this.owner, stackAmount);
         super.stackPower(chantGained);
+        DevCombatLog.chantGained(this.owner, chantGained, this.amount);
         this.triggerCrystalStaff(chantGained);
     }
 
     @Override
     public void reducePower(int reduceAmount) {
+        DevCombatLog.chantConsumed(this.owner, Math.min(this.amount, reduceAmount), this.amount);
         this.triggerChantConsumed(Math.min(this.amount, reduceAmount));
         super.reducePower(reduceAmount);
     }

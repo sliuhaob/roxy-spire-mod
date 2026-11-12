@@ -25,6 +25,7 @@ public final class HighRankSpellHelper {
 
         int chantMissing = chantRequired - chantConsumed;
         int exhaustion = Math.min(ExhaustionPower.MAX_AMOUNT, chantMissing);
+        DevCombatLog.highRankSpell(chantRequired, chantConsumed, exhaustion);
         if (exhaustion > 0) {
             AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(player, player, new ExhaustionPower(player, exhaustion), exhaustion)

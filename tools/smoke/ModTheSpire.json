@@ -1,0 +1,10 @@
+{
+  "modid": "roxysmoke",
+  "name": "Roxy Smoke Test (dev only)",
+  "author_list": ["sliuhaob"],
+  "description": "Drives the real game through a scripted Roxy run, takes screenshots and exits. Development only: never install it for normal play or ship it.",
+  "version": "0.1.0",
+  "sts_version": "12-18-2022",
+  "mts_version": "3.30.0",
+  "dependencies": ["basemod", "roxymod"]
+}

@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import roxymod.RoxyMod;
 import roxymod.util.PowerIconHelper;
+import roxymod.util.DevCombatLog;
 
 public class ZeroChantDelayPower extends AbstractPower {
     public static final String POWER_ID = RoxyMod.makeID("ZeroChantDelay");
@@ -27,6 +28,7 @@ public class ZeroChantDelayPower extends AbstractPower {
     public void atStartOfTurn() {
         this.flash();
         if (this.owner.hasPower(ChantPower.POWER_ID)) {
+            DevCombatLog.chantLost(this.owner, this.owner.getPower(ChantPower.POWER_ID).amount, "zero_chant");
             this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, ChantPower.POWER_ID));
         }
         this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
