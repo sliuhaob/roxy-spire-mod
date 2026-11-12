@@ -2,17 +2,17 @@ $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Drawing
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $Project = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
-$JavaDir = Join-Path $Project 'src\main\java\startermod'
+$JavaDir = Join-Path $Project 'src\main\java\roxymod'
 $ResourceDir = Join-Path $Project 'src\main\resources'
-$ModResources = Join-Path $ResourceDir 'startermod'
-$Registration = Get-Content (Join-Path $JavaDir 'StarterMod.java') -Raw
+$ModResources = Join-Path $ResourceDir 'roxymod'
+$Registration = Get-Content (Join-Path $JavaDir 'RoxyMod.java') -Raw
 $Cards = @(Get-ChildItem (Join-Path $JavaDir 'cards') -Filter '*.java')
 $Localized = Get-Content (Join-Path $ModResources 'localization\zhs\CardStrings.json') -Raw | ConvertFrom-Json
 $IDs = @($Localized.PSObject.Properties.Name)
 $ExpectedImages = [Collections.Generic.HashSet[string]]::new()
 foreach ($Card in $Cards) {
     $Source = Get-Content $Card.FullName -Raw
-    $ID = 'startermod:' + $Card.BaseName
+    $ID = 'roxymod:' + $Card.BaseName
     if ($IDs -notcontains $ID) { throw "Missing localization: $ID" }
     if ($Source -notmatch ('makeID\("' + $Card.BaseName + '"\)')) { throw "Mismatched card ID: $Card" }
     if ([regex]::Matches($Registration, ('new ' + $Card.BaseName + '\(\)')).Count -ne 1) { throw "Missing or duplicate registration: $ID" }
@@ -34,7 +34,7 @@ foreach ($Card in $Cards) {
 }
 if ($Cards.Count -ne 75 -or $IDs.Count -ne 75) { throw 'Expected 75 registered, localized cards.' }
 $ArtDir = Join-Path $Project 'art_sources\cards\chibi_20261023'
-$ArtManifest = @(Get-Content (Join-Path $ArtDir 'manifest.json') -Raw | ConvertFrom-Json)
+$ArtManifest = @((Get-Content (Join-Path $ArtDir 'manifest.json') -Raw | ConvertFrom-Json))
 if ($ArtManifest.Count -ne 75 -or @($ArtManifest.id | Sort-Object -Unique).Count -ne 75) { throw 'Expected 75 unique chibi card originals.' }
 foreach ($Art in $ArtManifest) {
     if (-not $ExpectedImages.Contains($Art.id + '.png')) { throw "Unregistered art manifest entry: $($Art.id)" }
@@ -62,7 +62,7 @@ foreach ($Kind in @('Relic', 'Potion')) {
     $Keys = @($Localization.PSObject.Properties.Name)
     if ($Keys.Count -ne $ExpectedCount) { throw "Wrong $Kind localization count." }
     foreach ($Key in $Keys) {
-        $ClassName = $Key -replace '^startermod:', ''
+        $ClassName = $Key -replace '^roxymod:', ''
         if (-not (Test-Path (Join-Path $JavaDir ($Kind.ToLower() + 's\' + $ClassName + '.java')))) { throw "Missing $Kind class: $Key" }
         if ($Registration -notmatch [regex]::Escape($ClassName)) { throw "Missing $Kind registration: $Key" }
     }
@@ -85,12 +85,12 @@ foreach ($SourceFile in (Get-ChildItem $JavaDir -Recurse -Filter '*.java')) {
 foreach ($File in (Get-ChildItem (Join-Path $ModResources 'images\cards') -Filter '*.png')) {
     if (-not $ExpectedImages.Contains($File.Name)) { Write-Warning "Unreferenced card image: $($File.Name)" }
 }
-$JarPath = Join-Path $Project 'build\libs\StarterMod.jar'
+$JarPath = Join-Path $Project 'build\libs\RoxyMod.jar'
 $Zip = [IO.Compression.ZipFile]::OpenRead($JarPath)
 try {
     $Entries = @($Zip.Entries.FullName)
     foreach ($Card in $Cards) {
-        if ($Entries -notcontains ('startermod/cards/' + $Card.BaseName + '.class')) { throw "Card missing from JAR: $Card" }
+        if ($Entries -notcontains ('roxymod/cards/' + $Card.BaseName + '.class')) { throw "Card missing from JAR: $Card" }
     }
     if (@($Entries | Where-Object { $_ -match 'MechanicsTest|test-classes|\.java$|sources.txt' }).Count) { throw 'Test/source files leaked into production JAR.' }
     foreach ($Resource in (Get-ChildItem $ResourceDir -Recurse -File)) {

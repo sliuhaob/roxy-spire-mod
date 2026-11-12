@@ -24,10 +24,10 @@
 .\build.ps1 -Verify -Install
 ```
 
-产物：build/libs/StarterMod.jar。默认安装到：
+产物：build/libs/RoxyMod.jar。默认安装到：
 
 ```text
-C:\Program Files (x86)\Steam\steamapps\common\SlayTheSpire\mods\StarterMod.jar
+C:\Program Files (x86)\Steam\steamapps\common\SlayTheSpire\mods\RoxyMod.jar
 ```
 
 可通过 STS_GAME_DIR、MTS_JAR、BASEMOD_JAR 配置依赖位置。安装后校验 SHA-256；游戏已运行时需重新加载模组。
@@ -46,4 +46,4 @@ C:\Program Files (x86)\Steam\steamapps\common\SlayTheSpire\mods\StarterMod.jar
 
 原图和完整提示词位于 art_sources/cards/chibi_20261023/ 与 art_sources/character/chibi_20261023/。tools/import-card-art.ps1、tools/import-character-art.ps1 可重新导出游戏资源；tools/preview-card-art.ps1 输出全部卡图的实际尺寸检查拼图。0.2.1 沿用 0.2.0 的数值与机制修正。
 
-为保留现有存档标识，本版沿用 startermod 命名空间及全部卡牌 ID。旧 E1/E2 改名之前的存档仍遵循原有兼容性限制。默认不再自动标记全部卡牌已见；开发者可使用 JVM 参数 -Droxy.dev.revealCards=true 临时开启。
+模组命名空间已由 startermod 改为 roxymod，卡牌、遗物、药水与状态的 ID 前缀随之变更，改名之前的进行中存档不再兼容。默认不再自动标记全部卡牌已见；开发者可使用 JVM 参数 -Droxy.dev.revealCards=true 临时开启。

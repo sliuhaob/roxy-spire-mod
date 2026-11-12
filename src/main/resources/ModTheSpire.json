@@ -1,12 +1,12 @@
 {
-  "modid": "startermod",
+  "modid": "roxymod",
   "name": "Roxy · 水与咏唱",
   "author_list": [
-    "Roxy Mod"
+    "sliuhaob"
   ],
   "description": "洛琪希角色模组：75 张卡牌、10 件遗物、3 种药水。以咏唱、接续、复习和水冰雷反应构筑牌组。",
   "version": "0.2.1",
-  "sts_version": "12-22-2020",
+  "sts_version": "12-18-2022",
   "mts_version": "3.30.0",
   "dependencies": [
     "basemod"

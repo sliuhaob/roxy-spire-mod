@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="RoxyMod">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/build/libs/RoxyMod.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

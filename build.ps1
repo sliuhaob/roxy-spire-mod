@@ -21,7 +21,7 @@ $ProjectDir = $PSScriptRoot
 $BuildDir = Join-Path $ProjectDir "build"
 $ClassesDir = Join-Path $BuildDir "classes"
 $DistDir = Join-Path $BuildDir "libs"
-$JarPath = Join-Path $DistDir "StarterMod.jar"
+$JarPath = Join-Path $DistDir "RoxyMod.jar"
 $JdkBin = if ($env:JAVA_HOME -and (Test-Path -LiteralPath (Join-Path $env:JAVA_HOME 'bin\javac.exe'))) {
     Join-Path $env:JAVA_HOME 'bin'
 } else {
@@ -83,7 +83,7 @@ if ($Verify) {
 if ($Install) {
     $ModsDir = Join-Path $GameDir "mods"
     New-Item -ItemType Directory -Force -Path $ModsDir | Out-Null
-    $InstalledJar = Join-Path $ModsDir "StarterMod.jar"
+    $InstalledJar = Join-Path $ModsDir "RoxyMod.jar"
     Copy-Item -LiteralPath $JarPath -Destination $InstalledJar -Force
     if ((Get-FileHash -LiteralPath $JarPath).Hash -ne (Get-FileHash -LiteralPath $InstalledJar).Hash) {
         throw "Installed JAR does not match the build."

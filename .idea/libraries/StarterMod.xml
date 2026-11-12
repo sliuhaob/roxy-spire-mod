@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="StarterMod">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/build/libs/StarterMod.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

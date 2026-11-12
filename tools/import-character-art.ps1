@@ -2,7 +2,7 @@ param([string]$SourceDir = (Join-Path $PSScriptRoot '..\art_sources\character\ch
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Drawing
 $Project = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
-$Images = Join-Path $Project 'src\main\resources\startermod\images'
+$Images = Join-Path $Project 'src\main\resources\roxymod\images'
 # This script only crops transparent padding and scales image_gen artwork to engine sizes.
 Add-Type -ReferencedAssemblies System.Drawing.Common, System.Drawing.Primitives -TypeDefinition @'
 using System;

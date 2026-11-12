@@ -20,7 +20,7 @@ try {
                 $Entry = $Cards[$Page * 25 + $Index]
                 $X = 16 + ($Index % 5) * 264
                 $Y = 16 + [Math]::Floor($Index / 5.0) * 228
-                $Art = [Drawing.Image]::FromFile((Join-Path $Project ('src\main\resources\startermod\images\cards\' + $Entry.id + '.png')))
+                $Art = [Drawing.Image]::FromFile((Join-Path $Project ('src\main\resources\roxymod\images\cards\' + $Entry.id + '.png')))
                 try { $G.DrawImageUnscaled($Art, [int]$X, [int]$Y) } finally { $Art.Dispose() }
                 $G.DrawString($Entry.name, $Font, $Brush, [single]$X, [single]($Y + 194))
             }

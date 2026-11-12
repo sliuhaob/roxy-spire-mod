@@ -19,11 +19,11 @@ import java.lang.reflect.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import sun.misc.Unsafe;
-import startermod.actions.*;
-import startermod.cards.RoxyLightning;
-import startermod.powers.*;
-import startermod.relics.RoxyChantConsumedRelic;
-import startermod.util.ReviewHelper;
+import roxymod.actions.*;
+import roxymod.cards.RoxyLightning;
+import roxymod.powers.*;
+import roxymod.relics.RoxyChantConsumedRelic;
+import roxymod.util.ReviewHelper;
 
 /** Uses the installed game engine. Skips graphical constructors with Unsafe. */
 public class MechanicsTest {
@@ -141,7 +141,7 @@ public class MechanicsTest {
         }
         Field cards = LocalizedStrings.class.getDeclaredField("cards"); cards.setAccessible(true);
         Map<String, CardStrings> custom = gson.fromJson(new InputStreamReader(new FileInputStream(
-            new File(System.getProperty("roxy.projectDir", "."), "src/main/resources/startermod/localization/zhs/CardStrings.json")), StandardCharsets.UTF_8), cards.getGenericType());
+            new File(System.getProperty("roxy.projectDir", "."), "src/main/resources/roxymod/localization/zhs/CardStrings.json")), StandardCharsets.UTF_8), cards.getGenericType());
         ((Map<String, CardStrings>)cards.get(null)).putAll(custom);
         CardCrawlGame.languagePack = bare(LocalizedStrings.class);
         HeadlessTexture texture = bare(HeadlessTexture.class);
@@ -180,7 +180,7 @@ public class MechanicsTest {
         room.monsters = new MonsterGroup(new AbstractMonster[0]);
         node.room = room;
         AbstractDungeon.currMapNode = node;
-        startermod.patches.FreezeMonsterTurnPatch.FreezeCounterField.counter.initialize(Monster.class, "freezeCounter");
+        roxymod.patches.FreezeMonsterTurnPatch.FreezeCounterField.counter.initialize(Monster.class, "freezeCounter");
         reset();
     }
     static void payments() throws Exception {
@@ -233,7 +233,7 @@ public class MechanicsTest {
         for (int available = 0; available <= 4; available++) {
             for (int required = 0; required <= 4; required++) {
                 reset(); player.powers.add(new ChantPower(player, available));
-                startermod.util.HighRankSpellHelper.resolve(player, required);
+                roxymod.util.HighRankSpellHelper.resolve(player, required);
                 int missing = Math.max(0, required - available);
                 int paid = Math.min(available, required);
                 check(queued(ConsumeChantAction.class) == (paid > 0 ? 1 : 0), "high rank pays available chant only");
@@ -295,7 +295,7 @@ public class MechanicsTest {
     }
     static void review() throws Exception {
         reset(); RoxyLightning first = bare(RoxyLightning.class), second = bare(RoxyLightning.class);
-        first.cardID = second.cardID = "startermod:RoxyLightning";
+        first.cardID = second.cardID = "roxymod:RoxyLightning";
         check(!ReviewHelper.isReview(first), "no history before first play");
         AbstractDungeon.actionManager.cardsPlayedThisCombat.add(first);
         check(!ReviewHelper.isReview(first), "first recorded play does not review");

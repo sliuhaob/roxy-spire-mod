@@ -1,5 +1,5 @@
 param(
-    [string]$OutputDirectory = "..\..\src\main\resources\startermod\images\powers"
+    [string]$OutputDirectory = "..\..\src\main\resources\roxymod\images\powers"
 )
 
 $ErrorActionPreference = "Stop"

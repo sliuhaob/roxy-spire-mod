@@ -3,7 +3,7 @@ $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Drawing
 $Project = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $SourceDir = Split-Path ([IO.Path]::GetFullPath($Manifest))
-$CardDir = Join-Path $Project 'src\main\resources\startermod\images\cards'
+$CardDir = Join-Path $Project 'src\main\resources\roxymod\images\cards'
 $Entries = @(Get-Content -LiteralPath $Manifest -Raw | ConvertFrom-Json)
 $Seen = [Collections.Generic.HashSet[string]]::new()
 foreach ($entry in $Entries) {
