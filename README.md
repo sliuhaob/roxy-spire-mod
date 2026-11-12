@@ -42,6 +42,7 @@ C:\Program Files (x86)\Steam\steamapps\common\SlayTheSpire\mods\RoxyMod.jar
 - [Q 版美术改版记录](docs/chibi_art_20261023.md)
 - [发布检查清单](docs/release_checklist.md)
 - [实机试玩指南](docs/playtest_guide.md)
+- [API 美术补全记录](docs/art_api_20261111.md)
 - [卡牌总览](outputs/roxy_card_overview/roxy_card_overview.xlsx)
 - [完整内容总览](outputs/roxy_content_overview/roxy_content_overview.xlsx)
 

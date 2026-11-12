@@ -29,6 +29,7 @@ import roxymod.cards.RoxyDefend;
 import roxymod.cards.RoxyWaterCurtain;
 import roxymod.cards.RoxyWaterBullet;
 import roxymod.relics.RoxyManaCrystal;
+import roxymod.ui.RoxyEnergyOrb;
 
 public class Roxy extends CustomPlayer {
     public static final String NAME = "洛琪希";
@@ -59,7 +60,7 @@ public class Roxy extends CustomPlayer {
     private boolean wasInCampfireRoom = false;
 
     public Roxy(String name) {
-        super(name, RoxyEnums.ROXY, (String[]) null, (String) null, new NoAnimation());
+        super(name, RoxyEnums.ROXY, new RoxyEnergyOrb(), new NoAnimation());
 
         this.initializeClass(
             CHARACTER_IMG,

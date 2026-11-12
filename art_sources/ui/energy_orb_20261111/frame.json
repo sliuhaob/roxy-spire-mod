@@ -1,0 +1,28 @@
+{
+  "model": "gpt-image-2.6-sunburst",
+  "prompt": "Game UI art for the card game Slay the Spire, matching the reference card-cost badge (dark navy frame, glowing cyan water swirl). Hand-painted, bold dark outline, light from the upper left, deep navy, silver and glowing cyan. Seen exactly face-on, perfectly circular and centred. Transparent background. No text, no numbers.\n\nSubject: the frame of a round energy orb: a thick circular ring of dark navy enamel and brushed silver, with four small blue crystal studs at the top, bottom, left and right and a thin gold inner trim. The centre of the ring is completely empty and transparent; the empty hole is about 68% of the ring's outer diameter. Nothing inside the ring.",
+  "size": "1024x1024",
+  "quality": "medium",
+  "background": "transparent",
+  "output_format": "png",
+  "n": 1,
+  "references": [
+    "card_roxy_orb.png"
+  ],
+  "endpoint": "images/edits",
+  "usage": {
+    "input_tokens": 281,
+    "input_tokens_details": {
+      "image_tokens": 121,
+      "text_tokens": 160
+    },
+    "output_tokens": 1449,
+    "output_tokens_details": {
+      "image_tokens": 1449,
+      "text_tokens": 0
+    },
+    "total_tokens": 1730
+  },
+  "created": 1794464701,
+  "seconds": 29.2
+}

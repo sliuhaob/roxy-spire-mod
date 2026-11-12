@@ -1,0 +1,31 @@
+{
+  "model": "gpt-image-2.6-sunburst",
+  "prompt": "Status-effect icon (buff or debuff) for the card game Slay the Spire, part of the same set as the reference icons. Match them closely: a glossy, hand-painted emblem with a bold dark outline, glowing accents and strong contrast. It must stay readable when shrunk to 32 pixels: one simple, bold symbol, no thin lines, no small details.\n\nComposition: one symbol centred, filling about 85% of the canvas, fully visible. Transparent background. No text, numbers or letters, no square frame, no scenery.\n\nSubject: two interlocking rings of flowing blue water forming a chain link, with a bright white-cyan spark where they join, showing one spell carrying on into the next. Same blue palette as the references.",
+  "size": "1024x1024",
+  "quality": "medium",
+  "background": "transparent",
+  "output_format": "png",
+  "n": 1,
+  "references": [
+    "chant84.png",
+    "wet84.png",
+    "water_sigil84.png",
+    "crystal_domain84.png"
+  ],
+  "endpoint": "images/edits",
+  "usage": {
+    "input_tokens": 344,
+    "input_tokens_details": {
+      "image_tokens": 144,
+      "text_tokens": 200
+    },
+    "output_tokens": 1449,
+    "output_tokens_details": {
+      "image_tokens": 1449,
+      "text_tokens": 0
+    },
+    "total_tokens": 1793
+  },
+  "created": 1794464663,
+  "seconds": 22.9
+}

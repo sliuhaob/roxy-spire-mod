@@ -65,6 +65,11 @@ public class RoxySmokeTest implements PostUpdateSubscriber, PostRenderSubscriber
     private static final int SHEET_COLUMNS = 7;
     private static final int SHEET_ROWS = 3;
     private static final AbstractMonster.Intent STUN = AbstractMonster.Intent.STUN;
+    private static final String[] RELICS = {
+        "roxymod:RoxyChantPrimer", "roxymod:RoxyTeachingPointer", "roxymod:RoxyHydraulicSeal",
+        "roxymod:RoxyTravelFlask", "roxymod:RoxyManaCrystalCore", "roxymod:RoxyWaterSigilRelic",
+        "roxymod:RoxyLessonNotebook", "roxymod:RoxyClearWaterPendant", "roxymod:RoxyMilisCharm"
+    };
 
     private interface Step {
         boolean tick() throws Exception;
@@ -137,6 +142,8 @@ public class RoxySmokeTest implements PostUpdateSubscriber, PostRenderSubscriber
             check("playing as Roxy", AbstractDungeon.player.chosenClass == RoxyEnums.ROXY, String.valueOf(AbstractDungeon.player.chosenClass));
             check("starter deck has 10 cards", AbstractDungeon.player.masterDeck.size() == 10, "size " + AbstractDungeon.player.masterDeck.size());
             check("starter relic equipped", !AbstractDungeon.player.relics.isEmpty(), "no relics");
+            check("Roxy's own energy orb is in use (blue energy flash)",
+                AbstractDungeon.player.getEnergyImage() == ImageMaster.BLUE_ORB_FLASH_VFX, "flash texture differs");
             this.buildSheets();
         });
         shot("02-neow");
@@ -219,6 +226,25 @@ public class RoxySmokeTest implements PostUpdateSubscriber, PostRenderSubscriber
         shot("22-hexaghost-divider");
         once("kill Hexaghost", () -> console("kill all"));
         waitUntil("Hexaghost reward screen", 60, () -> AbstractDungeon.screen == AbstractDungeon.CurrentScreen.COMBAT_REWARD);
+
+        // Last, so battle-start relic effects cannot change the Freeze checks above.
+        once("obtain every Roxy relic", () -> {
+            for (String id : RELICS) {
+                console("relic add " + id);
+            }
+        });
+        delay(2);
+        once("relic bar", () -> {
+            // The boss relic replaces the starter in its slot; nothing else may be lost.
+            boolean allKept = true;
+            for (String id : RELICS) {
+                allKept &= AbstractDungeon.player.hasRelic(id);
+            }
+            check("boss crystal replaced the starter and every other relic was kept",
+                allKept && !AbstractDungeon.player.hasRelic("roxymod:RoxyManaCrystal") && roxyRelicCount() == 9,
+                roxyRelicCount() + " Roxy relics: " + relicIds());
+        });
+        shot("23-relics");
     }
 
     // Task helpers.
@@ -419,6 +445,24 @@ public class RoxySmokeTest implements PostUpdateSubscriber, PostRenderSubscriber
 
     private static void console(String command) {
         ConsoleCommand.execute(command.split(" "));
+    }
+
+    private static int roxyRelicCount() {
+        int count = 0;
+        for (com.megacrit.cardcrawl.relics.AbstractRelic relic : AbstractDungeon.player.relics) {
+            if (relic.relicId.startsWith("roxymod:")) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private static String relicIds() {
+        StringBuilder ids = new StringBuilder();
+        for (com.megacrit.cardcrawl.relics.AbstractRelic relic : AbstractDungeon.player.relics) {
+            ids.append(relic.relicId).append(' ');
+        }
+        return ids.toString().trim();
     }
 
     private static int amount(AbstractCreature creature, String powerId) {

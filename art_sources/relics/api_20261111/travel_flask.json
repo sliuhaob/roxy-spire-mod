@@ -1,0 +1,28 @@
+{
+  "model": "gpt-image-2.6-sunburst",
+  "prompt": "Relic icon for the roguelike card game Slay the Spire. Hand-painted game icon: a thick, bold, dark navy outline around the whole silhouette, cel shading with two or three tones, a few crisp highlights, light from the upper left. Chunky, compact proportions so the object stays readable when shrunk to 64 pixels: no thin spindly parts and no tiny details. Palette: deep blues and cyans with small gold, silver or warm wood accents. Match the finish and palette of the reference relic (a blue crystal in a silver frame); ignore the reference's flat green background.\n\nComposition: a single object, centred, filling about 75% of the canvas, fully visible. Transparent background. No cast shadow, no text or letters, no frame or border, no scenery.\n\nSubject: a sturdy traveller's potion flask with a rounded glass body, a cork stopper, a short leather strap and a brass collar, half filled with glowing blue liquid.",
+  "size": "1024x1024",
+  "quality": "medium",
+  "background": "transparent",
+  "output_format": "png",
+  "n": 1,
+  "references": [
+    "roxy_mana_crystal_chroma.png"
+  ],
+  "endpoint": "images/edits",
+  "usage": {
+    "input_tokens": 1736,
+    "input_tokens_details": {
+      "image_tokens": 1521,
+      "text_tokens": 215
+    },
+    "output_tokens": 1449,
+    "output_tokens_details": {
+      "image_tokens": 1449,
+      "text_tokens": 0
+    },
+    "total_tokens": 3185
+  },
+  "created": 1794464591,
+  "seconds": 31.9
+}

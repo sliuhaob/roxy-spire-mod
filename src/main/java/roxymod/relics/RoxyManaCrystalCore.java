@@ -42,7 +42,8 @@ public class RoxyManaCrystalCore extends CustomRelic implements RoxyContinuation
         if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(RoxyManaCrystal.ID)) {
             int index = AbstractDungeon.player.relics.indexOf(AbstractDungeon.player.getRelic(RoxyManaCrystal.ID));
             AbstractDungeon.player.getRelic(RoxyManaCrystal.ID).onUnequip();
-            AbstractDungeon.player.relics.remove(index);
+            // instantObtain replaces the relic at this slot, as vanilla Black Blood does. Removing
+            // the starter first would shift the list, and the next relic would be overwritten.
             this.instantObtain(AbstractDungeon.player, index, true);
         } else {
             super.obtain();

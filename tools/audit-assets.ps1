@@ -67,6 +67,38 @@ foreach ($Kind in @('Relic', 'Potion')) {
         if ($Registration -notmatch [regex]::Escape($ClassName)) { throw "Missing $Kind registration: $Key" }
     }
 }
+function Test-HasVisiblePixels([Drawing.Bitmap]$Bitmap) {
+    for ($y = 0; $y -lt $Bitmap.Height; $y += 4) {
+        for ($x = 0; $x -lt $Bitmap.Width; $x += 4) {
+            if ($Bitmap.GetPixel($x, $y).A -gt 0) { return $true }
+        }
+    }
+    return $false
+}
+# Relic icon 128, popup image 256 and outline 128; an empty outline loses the hover glow.
+$RelicImages = 0
+foreach ($Relic in (Get-ChildItem (Join-Path $JavaDir 'relics') -Filter 'Roxy*.java')) {
+    $Source = Get-Content $Relic.FullName -Raw
+    if ($Source -notmatch 'String IMG = ') { continue }
+    foreach ($Spec in @(@('IMG', 128), @('OUTLINE', 128), @('LARGE_IMG', 256))) {
+        $Match = [regex]::Match($Source, ' ' + $Spec[0] + ' = RoxyMod\.assetPath\("([^"]+)"\)')
+        if (-not $Match.Success) { throw "Relic image constant $($Spec[0]) missing: $($Relic.Name)" }
+        $Bitmap = [Drawing.Bitmap]::new((Join-Path $ModResources $Match.Groups[1].Value))
+        try {
+            if ($Bitmap.Width -ne $Spec[1] -or $Bitmap.Height -ne $Spec[1]) { throw "Wrong relic image size: $($Match.Groups[1].Value)" }
+            if (-not (Test-HasVisiblePixels $Bitmap)) { throw "Relic image is empty: $($Match.Groups[1].Value)" }
+        } finally { $Bitmap.Dispose() }
+        $RelicImages++
+    }
+}
+if ($RelicImages -ne 30) { throw "Expected 30 relic images, checked $RelicImages." }
+foreach ($Layer in @('frame', 'vortex', 'vortex_d', 'glints', 'glints_d')) {
+    $Bitmap = [Drawing.Bitmap]::new((Join-Path $ModResources ('images\ui\energyorb\' + $Layer + '.png')))
+    try {
+        if ($Bitmap.Width -ne 128 -or $Bitmap.Height -ne 128) { throw "Wrong energy orb layer size: $Layer" }
+        if (-not (Test-HasVisiblePixels $Bitmap)) { throw "Energy orb layer is empty: $Layer" }
+    } finally { $Bitmap.Dispose() }
+}
 foreach ($SourceFile in (Get-ChildItem $JavaDir -Recurse -Filter '*.java')) {
     $Source = Get-Content $SourceFile.FullName -Raw
     foreach ($Reference in [regex]::Matches($Source, 'assetPath\("([^"]+)"\)')) {
@@ -104,4 +136,4 @@ try {
         } finally { $Stream.Dispose(); $Hasher.Dispose() }
     }
 } finally { $Zip.Dispose() }
-Write-Host 'PASS: 75 cards, 10 relics, 3 potions; 75 art originals; 150 portraits; 7 character resources; power icons; resource references; production JAR contents and SHA-256 hashes.'
+Write-Host 'PASS: 75 cards, 10 relics, 3 potions; 75 art originals; 150 portraits; 7 character resources; 30 relic images; energy orb layers; power icons; resource references; production JAR contents and SHA-256 hashes.'

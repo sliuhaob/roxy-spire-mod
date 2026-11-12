@@ -1,0 +1,28 @@
+{
+  "model": "gpt-image-2.6-sunburst",
+  "prompt": "Game UI art for the card game Slay the Spire, matching the reference card-cost badge (dark navy frame, glowing cyan water swirl). Hand-painted, bold dark outline, light from the upper left, deep navy, silver and glowing cyan. Seen exactly face-on, perfectly circular and centred. Transparent background. No text, no numbers.\n\nSubject: a perfectly circular disc of swirling magical water seen from directly above: deep blue at the rim spiralling inward to a bright glowing cyan-white core, with flowing spiral currents and a few small sparkles. Evenly lit with no directional light or cast shadow, so it still looks right while spinning. The disc fills the whole canvas edge to edge as a perfect circle.",
+  "size": "1024x1024",
+  "quality": "medium",
+  "background": "transparent",
+  "output_format": "png",
+  "n": 1,
+  "references": [
+    "card_roxy_orb.png"
+  ],
+  "endpoint": "images/edits",
+  "usage": {
+    "input_tokens": 281,
+    "input_tokens_details": {
+      "image_tokens": 121,
+      "text_tokens": 160
+    },
+    "output_tokens": 1449,
+    "output_tokens_details": {
+      "image_tokens": 1449,
+      "text_tokens": 0
+    },
+    "total_tokens": 1730
+  },
+  "created": 1794464704,
+  "seconds": 32.7
+}

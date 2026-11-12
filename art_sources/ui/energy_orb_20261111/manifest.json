@@ -1,0 +1,12 @@
+{
+  "purpose": "Roxy's combat energy orb, replacing the default red Ironclad orb. Two layers, cut into 128 px game layers by art_sources/tools/export_energy_orb.py: a static frame and a vortex that rotates inside it.",
+  "model": "gpt-image-2.6-sunburst",
+  "quality": "medium",
+  "background": "transparent",
+  "references": ["../../../src/main/resources/roxymod/images/1024/card_roxy_orb.png"],
+  "style": "Game UI art for the card game Slay the Spire, matching the reference card-cost badge (dark navy frame, glowing cyan water swirl). Hand-painted, bold dark outline, light from the upper left, deep navy, silver and glowing cyan. Seen exactly face-on, perfectly circular and centred. Transparent background. No text, no numbers.",
+  "jobs": [
+    {"name": "frame", "subject": "the frame of a round energy orb: a thick circular ring of dark navy enamel and brushed silver, with four small blue crystal studs at the top, bottom, left and right and a thin gold inner trim. The centre of the ring is completely empty and transparent; the empty hole is about 68% of the ring's outer diameter. Nothing inside the ring."},
+    {"name": "vortex", "subject": "a perfectly circular disc of swirling magical water seen from directly above: deep blue at the rim spiralling inward to a bright glowing cyan-white core, with flowing spiral currents and a few small sparkles. Evenly lit with no directional light or cast shadow, so it still looks right while spinning. The disc fills the whole canvas edge to edge as a perfect circle."}
+  ]
+}

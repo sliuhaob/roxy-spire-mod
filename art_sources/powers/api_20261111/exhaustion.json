@@ -1,0 +1,31 @@
+{
+  "model": "gpt-image-2.6-sunburst",
+  "prompt": "Status-effect icon (buff or debuff) for the card game Slay the Spire, part of the same set as the reference icons. Match them closely: a glossy, hand-painted emblem with a bold dark outline, glowing accents and strong contrast. It must stay readable when shrunk to 32 pixels: one simple, bold symbol, no thin lines, no small details.\n\nComposition: one symbol centred, filling about 85% of the canvas, fully visible. Transparent background. No text, numbers or letters, no square frame, no scenery.\n\nSubject: a drained, cracked mana crystal: a dull violet-grey faceted crystal split by a jagged crack, its inner glow fading to a dim purple, with two small falling shards. Use muted purple and grey so it reads as a debuff, keeping the references' outline and finish.",
+  "size": "1024x1024",
+  "quality": "medium",
+  "background": "transparent",
+  "output_format": "png",
+  "n": 1,
+  "references": [
+    "chant84.png",
+    "wet84.png",
+    "water_sigil84.png",
+    "crystal_domain84.png"
+  ],
+  "endpoint": "images/edits",
+  "usage": {
+    "input_tokens": 361,
+    "input_tokens_details": {
+      "image_tokens": 144,
+      "text_tokens": 217
+    },
+    "output_tokens": 1449,
+    "output_tokens_details": {
+      "image_tokens": 1449,
+      "text_tokens": 0
+    },
+    "total_tokens": 1810
+  },
+  "created": 1794464671,
+  "seconds": 31.7
+}
