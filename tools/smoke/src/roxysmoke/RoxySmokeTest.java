@@ -14,6 +14,10 @@ import com.badlogic.gdx.utils.BufferUtils;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.actions.GameActionManager;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -22,19 +26,40 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.helpers.ModHelper;
+import com.megacrit.cardcrawl.helpers.RelicLibrary;
+import com.megacrit.cardcrawl.map.MapEdge;
+import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.city.GremlinLeader;
+import com.megacrit.cardcrawl.monsters.exordium.AcidSlime_L;
 import com.megacrit.cardcrawl.monsters.exordium.GremlinNob;
 import com.megacrit.cardcrawl.monsters.exordium.Hexaghost;
+import com.megacrit.cardcrawl.monsters.exordium.JawWorm;
+import com.megacrit.cardcrawl.monsters.exordium.Sentry;
+import com.megacrit.cardcrawl.monsters.exordium.SlimeBoss;
+import com.megacrit.cardcrawl.monsters.exordium.SpikeSlime_L;
 import com.megacrit.cardcrawl.neow.NeowRoom;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AngerPower;
+import com.megacrit.cardcrawl.powers.IntangiblePower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
+import com.megacrit.cardcrawl.rooms.RestRoom;
+import com.megacrit.cardcrawl.rooms.TreasureRoom;
+import com.megacrit.cardcrawl.rooms.TreasureRoomBoss;
+import com.megacrit.cardcrawl.saveAndContinue.SaveAndContinue;
 import com.megacrit.cardcrawl.screens.charSelect.CharacterOption;
 import com.megacrit.cardcrawl.screens.charSelect.CharacterSelectScreen;
+import com.megacrit.cardcrawl.screens.options.ConfirmPopup;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayDeque;
@@ -44,7 +69,10 @@ import java.util.List;
 import java.util.function.BooleanSupplier;
 import roxymod.RoxyEnums;
 import roxymod.actions.ApplyFreezeAction;
+import roxymod.potions.RoxyWaterBarrierPotion;
+import roxymod.powers.ChantPower;
 import roxymod.powers.FreezePower;
+import roxymod.powers.WetPower;
 import roxymod.util.ChantHelper;
 import roxymod.util.ContinuationHelper;
 
@@ -52,22 +80,25 @@ import roxymod.util.ContinuationHelper;
  * Dev-only in-game smoke test, loaded only by tools/smoke-test.ps1. That script runs the game
  * from a sandbox folder, so your real profile, saves and mods folder are never touched.
  *
- * It drives the real game: picks Roxy on the character select screen, embarks on a fixed seed,
- * draws every card face (base and upgraded), then fights Gremlin Nob and Hexaghost with Freeze
- * and checks that each frozen scripted move is delayed rather than lost. Screenshots and
- * smoke-report.txt go to -Droxy.smoke.out, then the game exits.
+ * It drives the real game on a fixed seed and checks, with screenshots: character select and
+ * every card face; Freeze delaying scripted moves (Gremlin Nob, Hexaghost), a whole frozen group
+ * (Gremlin Leader) and a split triggered while frozen (Slime Boss); Lightning's numbers under
+ * Weak, Vulnerable, Wet and Intangible; full-hand card moves and Review; every relic and the boss
+ * crystal picked on the boss relic screen; Water Sigil against Artifact, Wet and the Water
+ * Barrier potion; the large card view, rest site and chest; Save and Continue; and the death
+ * screen. Results go to -Droxy.smoke.out (smoke-report.txt), then the game exits.
  */
 @SpireInitializer
 public class RoxySmokeTest implements PostUpdateSubscriber, PostRenderSubscriber {
     private static final File OUT = new File(System.getProperty("roxy.smoke.out", "roxy-smoke"));
     private static final long SEED = 31415926L;
-    private static final float TOTAL_TIMEOUT = 480f;
+    private static final float TOTAL_TIMEOUT = 1100f;
     private static final int SHEET_COLUMNS = 7;
     private static final int SHEET_ROWS = 3;
     private static final AbstractMonster.Intent STUN = AbstractMonster.Intent.STUN;
     private static final String[] RELICS = {
         "roxymod:RoxyChantPrimer", "roxymod:RoxyTeachingPointer", "roxymod:RoxyHydraulicSeal",
-        "roxymod:RoxyTravelFlask", "roxymod:RoxyManaCrystalCore", "roxymod:RoxyWaterSigilRelic",
+        "roxymod:RoxyTravelFlask", "roxymod:RoxyWaterSigilRelic",
         "roxymod:RoxyLessonNotebook", "roxymod:RoxyClearWaterPendant", "roxymod:RoxyMilisCharm"
     };
 
@@ -103,7 +134,25 @@ public class RoxySmokeTest implements PostUpdateSubscriber, PostRenderSubscriber
 
     private GremlinNob nob;
     private Hexaghost hexaghost;
+    private SlimeBoss slimeBoss;
     private int turnMark;
+    private AbstractCard lightning;
+    private AbstractCard drawAttack;
+    private AbstractCard discardAttack;
+    private List<AbstractCard> handBefore = new ArrayList<>();
+    private List<AbstractMonster> group = new ArrayList<>();
+    private final List<Byte> movesBefore = new ArrayList<>();
+    private final List<AbstractMonster.Intent> intentsBefore = new ArrayList<>();
+    private final List<Integer> historyBefore = new ArrayList<>();
+    private final List<Integer> freezesBefore = new ArrayList<>();
+    private AbstractRelic bossCrystal;
+    private AbstractPotion potion;
+    private int expected;
+    private int hpBefore;
+    private int freezeBefore;
+    private int chantBefore;
+    private int blockBefore;
+    private String runBefore;
 
     public static void initialize() {
         BaseMod.subscribe(new RoxySmokeTest());
@@ -115,6 +164,24 @@ public class RoxySmokeTest implements PostUpdateSubscriber, PostRenderSubscriber
     }
 
     private void script() {
+        bootAndEmbark();
+        nobFreeze();
+        hexaghostFreeze();
+        cardPopup();
+        lightningAndFullHand();
+        gremlinLeaderFreeze();
+        slimeBossSplit();
+        // Relics come after the Freeze fights so their battle-start effects cannot change them.
+        relicsAndBossChoice();
+        sentriesArtifactAndPotion();
+        restSite();
+        treasureChest();
+        saveAndContinue();
+        // Last: dying ends the run.
+        death();
+    }
+
+    private void bootAndEmbark() {
         waitUntil("main menu is up", 180, () -> CardCrawlGame.mode == CardCrawlGame.GameMode.CHAR_SELECT
             && CardCrawlGame.mainMenuScreen != null && !CardCrawlGame.mainMenuScreen.isFadingOut);
         delay(2);
@@ -136,7 +203,7 @@ public class RoxySmokeTest implements PostUpdateSubscriber, PostRenderSubscriber
         });
         waitUntil("run starts at Neow", 120, () -> CardCrawlGame.mode == CardCrawlGame.GameMode.GAMEPLAY
             && CardCrawlGame.dungeonTransitionScreen == null && AbstractDungeon.player != null
-            && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom() instanceof NeowRoom);
+            && AbstractDungeon.currMapNode != null && currentRoom() instanceof NeowRoom);
         delay(3);
         once("starting loadout", () -> {
             check("playing as Roxy", AbstractDungeon.player.chosenClass == RoxyEnums.ROXY, String.valueOf(AbstractDungeon.player.chosenClass));
@@ -150,7 +217,9 @@ public class RoxySmokeTest implements PostUpdateSubscriber, PostRenderSubscriber
         for (int page = 0; page < 8; page++) {
             sheet(page);
         }
+    }
 
+    private void nobFreeze() {
         once("fight Gremlin Nob", () -> console("fight Gremlin_Nob"));
         waitUntil("Nob combat ready", 90, () -> (this.nob = find(GremlinNob.class)) != null && playerTurnReady());
         delay(1.5f);
@@ -194,11 +263,12 @@ public class RoxySmokeTest implements PostUpdateSubscriber, PostRenderSubscriber
         delay(1.5f);
         once("Bellow happens a turn late", () -> check("Nob Bellowed on its next turn (has Anger)", this.nob.hasPower(AngerPower.POWER_ID), powers(this.nob)));
         shot("13-nob-after-bellow");
-        once("kill Nob", () -> console("kill all"));
-        waitUntil("combat reward screen", 60, () -> AbstractDungeon.screen == AbstractDungeon.CurrentScreen.COMBAT_REWARD);
+        killAndWaitForRewards("Nob");
         delay(2);
         shot("14-combat-reward");
+    }
 
+    private void hexaghostFreeze() {
         once("fight Hexaghost", () -> console("fight Hexaghost"));
         waitUntil("Hexaghost combat ready", 90, () -> (this.hexaghost = find(Hexaghost.class)) != null && playerTurnReady());
         delay(1.5f);
@@ -224,27 +294,395 @@ public class RoxySmokeTest implements PostUpdateSubscriber, PostRenderSubscriber
         once("Divider is set up", () -> check("Hexaghost now intends Divider with real damage", this.hexaghost.nextMove == 1
             && this.hexaghost.intent == AbstractMonster.Intent.ATTACK && this.hexaghost.getIntentBaseDmg() > 0, describe(this.hexaghost)));
         shot("22-hexaghost-divider");
-        once("kill Hexaghost", () -> console("kill all"));
-        waitUntil("Hexaghost reward screen", 60, () -> AbstractDungeon.screen == AbstractDungeon.CurrentScreen.COMBAT_REWARD);
+        killAndWaitForRewards("Hexaghost");
+    }
 
-        // Last, so battle-start relic effects cannot change the Freeze checks above.
-        once("obtain every Roxy relic", () -> {
+    /** The enlarged card view, with its keyword tooltips. */
+    private void cardPopup() {
+        once("open the large card view", () -> {
+            AbstractCard card = CardLibrary.getCard("roxymod:RoxyIciclePrison").makeCopy();
+            CardCrawlGame.cardPopup.open(card);
+        });
+        delay(1.5f);
+        once("large card view is open", () -> check("large card view opens for a Roxy card", CardCrawlGame.cardPopup.isOpen, "popup closed"));
+        shot("30-card-popup");
+        once("close the large card view", () -> CardCrawlGame.cardPopup.close());
+        delay(0.5f);
+    }
+
+    /** Lightning's numbers under Weak, Vulnerable, Wet and Intangible; full-hand card moves; Review. */
+    private void lightningAndFullHand() {
+        once("fight Gremlin Nob again", () -> console("fight Gremlin_Nob"));
+        waitUntil("second Nob combat ready", 90, () -> (this.nob = find(GremlinNob.class)) != null && playerTurnReady());
+        delay(1);
+        once("Weak, Vulnerable and 2 Wet", () -> {
+            AbstractPlayer p = AbstractDungeon.player;
+            applyPower(p, new ChantPower(p, 6), 6);
+            applyPower(p, new WeakPower(p, 2, false), 2);
+            applyPower(this.nob, new VulnerablePower(this.nob, 2, false), 2);
+            applyPower(this.nob, new WetPower(this.nob, 2), 2);
+        });
+        waitUntil("debuffs land", 30, this::playerTurnReady);
+        once("Lightning under Weak, Vulnerable and Wet", () -> {
+            this.lightning = handCard("roxymod:RoxyLightning");
+            this.lightning.calculateCardDamage(this.nob);
+            this.expected = (int) Math.floor((24 + 5 * 2) * 0.75f * 1.5f);
+            check("Lightning preview: (24 + 5 x 2 Wet) x 0.75 Weak x 1.5 Vulnerable = 38",
+                this.lightning.damage == this.expected, "preview " + this.lightning.damage);
+            this.hpBefore = this.nob.currentHealth;
+            queue(this.lightning, this.nob);
+        });
+        delay(0.5f);
+        shot("31-lightning");
+        waitUntil("Lightning resolves", 30, this::playerTurnReady);
+        once("Lightning damage dealt", () -> {
+            check("Lightning deals the previewed 38", this.hpBefore - this.nob.currentHealth == this.expected,
+                "dealt " + (this.hpBefore - this.nob.currentHealth));
+            check("Lightning consumed all Wet", !this.nob.hasPower(WetPower.POWER_ID), powers(this.nob));
+            applyPower(this.nob, new IntangiblePower(this.nob, 1), 1);
+            applyPower(this.nob, new WetPower(this.nob, 1), 1);
+        });
+        waitUntil("Intangible lands", 30, this::playerTurnReady);
+        once("Lightning into Intangible", () -> {
+            this.lightning = handCard("roxymod:RoxyLightning");
+            this.lightning.calculateCardDamage(this.nob);
+            check("Lightning preview against Intangible is 1", this.lightning.damage == 1, "preview " + this.lightning.damage);
+            this.hpBefore = this.nob.currentHealth;
+            queue(this.lightning, this.nob);
+        });
+        waitUntil("Lightning into Intangible resolves", 30, this::playerTurnReady);
+        once("Intangible caps Lightning", () -> check("Lightning deals 1 through Intangible",
+            this.hpBefore - this.nob.currentHealth == 1, "dealt " + (this.hpBefore - this.nob.currentHealth)));
+
+        once("fill the hand, seed the piles", () -> {
+            AbstractPlayer p = AbstractDungeon.player;
+            while (p.hand.size() < BaseMod.MAX_HAND_SIZE) {
+                p.hand.addToHand(CardLibrary.getCard("roxymod:RoxyDefend").makeCopy());
+            }
+            p.hand.refreshHandLayout();
+            this.drawAttack = CardLibrary.getCard("roxymod:RoxyIciclePrison").makeCopy();
+            p.drawPile.addToTop(this.drawAttack);
+            this.discardAttack = CardLibrary.getCard("roxymod:RoxyIciclePrison").makeCopy();
+            p.discardPile.addToTop(this.discardAttack);
+            queueFromLimbo("roxymod:RoxyLabyrinthMap", null);
+        });
+        waitUntil("Labyrinth Map resolves on a full hand", 30, this::playerTurnReady);
+        delay(0.5f);
+        shot("32-full-hand");
+        once("full hand: Labyrinth Map moves nothing", () -> {
+            AbstractPlayer p = AbstractDungeon.player;
+            check("full hand: Labyrinth Map leaves the attack in the draw pile",
+                p.hand.size() == BaseMod.MAX_HAND_SIZE && p.drawPile.contains(this.drawAttack),
+                "hand " + p.hand.size() + ", in draw pile " + p.drawPile.contains(this.drawAttack));
+            queueFromLimbo("roxymod:RoxyRecast", null);
+        });
+        waitUntil("Recast resolves on a full hand", 30, this::playerTurnReady);
+        once("full hand: Recast moves nothing", () -> {
+            AbstractPlayer p = AbstractDungeon.player;
+            check("full hand: Recast leaves the discard attack and its cost alone",
+                p.hand.size() == BaseMod.MAX_HAND_SIZE && p.discardPile.contains(this.discardAttack)
+                    && this.discardAttack.costForTurn == this.discardAttack.cost,
+                "hand " + p.hand.size() + ", cost " + this.discardAttack.costForTurn + "/" + this.discardAttack.cost);
+            for (int i = 0; i < 3; i++) {
+                p.hand.moveToDiscardPile(p.hand.getTopCard());
+            }
+            this.handBefore = new ArrayList<>(p.hand.group);
+            queueFromLimbo("roxymod:RoxyRecast", null);
+        });
+        waitUntil("second Recast resolves", 30, this::playerTurnReady);
+        once("Review lowers the recovered attack's cost", () -> {
+            AbstractCard moved = null;
+            for (AbstractCard c : AbstractDungeon.player.hand.group) {
+                if (!this.handBefore.contains(c) && c.type == AbstractCard.CardType.ATTACK) {
+                    moved = c;
+                }
+            }
+            check("Recast's Review: the recovered attack costs 1 less this turn",
+                moved != null && moved.costForTurn == Math.max(0, moved.cost - 1),
+                moved == null ? "no attack recovered" : moved.cardID + " cost " + moved.costForTurn + "/" + moved.cost);
+        });
+        killAndWaitForRewards("second Nob");
+    }
+
+    /** Several monsters frozen at once all skip, keep their moves, then act. */
+    private void gremlinLeaderFreeze() {
+        once("fight Gremlin Leader", () -> console("fight Gremlin_Leader"));
+        waitUntil("Gremlin Leader combat ready", 90, () -> find(GremlinLeader.class) != null && playerTurnReady());
+        delay(1);
+        once("freeze every monster", () -> {
+            this.turnMark = GameActionManager.turn;
+            this.group = aliveMonsters();
+            this.movesBefore.clear();
+            this.intentsBefore.clear();
+            this.historyBefore.clear();
+            for (AbstractMonster m : this.group) {
+                this.movesBefore.add(m.nextMove);
+                this.intentsBefore.add(m.intent);
+                this.historyBefore.add(m.moveHistory.size());
+                AbstractDungeon.actionManager.addToBottom(new ApplyFreezeAction(m, AbstractDungeon.player, 3));
+            }
+        });
+        waitUntil("freeze lands on the group", 30, this::playerTurnReady);
+        delay(1.5f);
+        once("the whole group shows stun", () -> {
+            boolean allStunned = true;
+            for (AbstractMonster m : this.group) {
+                allStunned &= m.intent == STUN;
+            }
+            check("every frozen monster shows a stun intent (" + this.group.size() + " monsters)", allStunned, describeAll(this.group));
+            this.hpBefore = AbstractDungeon.player.currentHealth;
+        });
+        shot("33-gremlin-leader-frozen");
+        endTurn();
+        waitUntil("Gremlin Leader turn 2", 90, () -> GameActionManager.turn == this.turnMark + 1 && playerTurnReady());
+        delay(1);
+        once("the group skipped together", () -> {
+            boolean kept = true;
+            for (int i = 0; i < this.group.size(); i++) {
+                AbstractMonster m = this.group.get(i);
+                kept &= m.nextMove == this.movesBefore.get(i) && m.intent == this.intentsBefore.get(i)
+                    && m.moveHistory.size() == this.historyBefore.get(i);
+            }
+            check("every frozen monster skipped and kept its pending move", kept, describeAll(this.group));
+            check("no frozen monster hurt Roxy or summoned", AbstractDungeon.player.currentHealth == this.hpBefore
+                && aliveMonsters().size() == this.group.size(), "hp " + this.hpBefore + " -> " + AbstractDungeon.player.currentHealth
+                + ", monsters " + aliveMonsters().size());
+        });
+        endTurn();
+        waitUntil("Gremlin Leader turn 3", 90, () -> GameActionManager.turn == this.turnMark + 2 && playerTurnReady());
+        once("the group acted a turn later", () -> {
+            boolean acted = true;
+            for (int i = 0; i < this.group.size(); i++) {
+                AbstractMonster m = this.group.get(i);
+                acted &= m.isDeadOrEscaped() || m.moveHistory.size() > this.historyBefore.get(i);
+            }
+            check("every monster took its delayed turn", acted, describeAll(this.group));
+        });
+        killAndWaitForRewards("Gremlin Leader");
+    }
+
+    /** A split triggered while frozen is hidden behind the stun, then still happens. */
+    private void slimeBossSplit() {
+        once("fight Slime Boss", () -> console("fight Slime_Boss"));
+        waitUntil("Slime Boss combat ready", 90, () -> (this.slimeBoss = find(SlimeBoss.class)) != null && playerTurnReady());
+        delay(1);
+        once("freeze Slime Boss", () -> {
+            this.turnMark = GameActionManager.turn;
+            AbstractDungeon.actionManager.addToBottom(new ApplyFreezeAction(this.slimeBoss, AbstractDungeon.player, 3));
+        });
+        waitUntil("freeze lands on Slime Boss", 30, this::playerTurnReady);
+        once("knock Slime Boss under half health", () -> {
+            int damage = this.slimeBoss.currentHealth - this.slimeBoss.maxHealth / 2 + 1;
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(this.slimeBoss,
+                new DamageInfo(AbstractDungeon.player, damage, DamageInfo.DamageType.HP_LOSS)));
+        });
+        waitUntil("damage resolves", 30, this::playerTurnReady);
+        delay(1.5f);
+        once("split is pending behind the stun", () -> check("frozen Slime Boss hides its pending split behind stun",
+            this.slimeBoss.nextMove == 3 && this.slimeBoss.intent == STUN, describe(this.slimeBoss)));
+        shot("34-slime-boss-split-pending");
+        endTurn();
+        waitUntil("Slime Boss turn 2", 90, () -> GameActionManager.turn == this.turnMark + 1 && playerTurnReady());
+        once("split delayed, not lost", () -> check("Slime Boss skipped and now shows its split",
+            !this.slimeBoss.isDying && this.slimeBoss.nextMove == 3 && this.slimeBoss.intent == AbstractMonster.Intent.UNKNOWN
+                && aliveMonsters().size() == 1, describe(this.slimeBoss)));
+        endTurn();
+        waitUntil("Slime Boss turn 3", 90, () -> GameActionManager.turn == this.turnMark + 2 && playerTurnReady());
+        delay(1);
+        once("Slime Boss split a turn late", () -> check("Slime Boss split into two large slimes on its next turn",
+            find(SpikeSlime_L.class) != null && find(AcidSlime_L.class) != null, describeAll(aliveMonsters())));
+        shot("35-slime-boss-split");
+        killAndWaitForRewards("slimes");
+    }
+
+    /** Every Roxy relic, then the boss crystal chosen on the real boss relic screen. */
+    private void relicsAndBossChoice() {
+        once("obtain the other Roxy relics", () -> {
             for (String id : RELICS) {
                 console("relic add " + id);
             }
         });
         delay(2);
+        once("go to a boss treasure room", () -> goToRoom(new TreasureRoomBoss()));
+        waitUntil("in the boss treasure room", 60, () -> currentRoom() instanceof TreasureRoomBoss
+            && !AbstractDungeon.isFadingOut && AbstractDungeon.screen == AbstractDungeon.CurrentScreen.NONE);
+        delay(1);
+        once("open the boss relic choice", () -> {
+            ArrayList<AbstractRelic> choice = new ArrayList<>();
+            this.bossCrystal = RelicLibrary.getRelic("roxymod:RoxyManaCrystalCore").makeCopy();
+            choice.add(this.bossCrystal);
+            choice.add(RelicLibrary.getRelic("Black Star").makeCopy());
+            choice.add(RelicLibrary.getRelic("Busted Crown").makeCopy());
+            AbstractDungeon.bossRelicScreen.open(choice);
+        });
+        delay(2);
+        shot("40-boss-relic-choice");
+        once("pick the boss crystal", () -> this.bossCrystal.bossObtainLogic());
+        waitUntil("boss relic taken", 30, () -> AbstractDungeon.screen != AbstractDungeon.CurrentScreen.BOSS_REWARD
+            && AbstractDungeon.player.hasRelic("roxymod:RoxyManaCrystalCore"));
+        delay(2);
         once("relic bar", () -> {
-            // The boss relic replaces the starter in its slot; nothing else may be lost.
             boolean allKept = true;
             for (String id : RELICS) {
                 allKept &= AbstractDungeon.player.hasRelic(id);
             }
-            check("boss crystal replaced the starter and every other relic was kept",
-                allKept && !AbstractDungeon.player.hasRelic("roxymod:RoxyManaCrystal") && roxyRelicCount() == 9,
+            check("boss crystal took the starter's slot and every other relic was kept",
+                allKept && !AbstractDungeon.player.hasRelic("roxymod:RoxyManaCrystal") && roxyRelicCount() == 9
+                    && AbstractDungeon.player.relics.get(0).relicId.equals("roxymod:RoxyManaCrystalCore"),
                 roxyRelicCount() + " Roxy relics: " + relicIds());
         });
-        shot("23-relics");
+        shot("41-relic-bar");
+    }
+
+    /** Water Sigil against Artifact, Wet with Icicle Prison, and the Water Barrier potion. */
+    private void sentriesArtifactAndPotion() {
+        once("fight 3 Sentries", () -> console("fight 3_Sentries"));
+        waitUntil("Sentries combat ready", 90, () -> find(Sentry.class) != null && playerTurnReady());
+        delay(1);
+        once("Water Sigil met Artifact", () -> {
+            this.group = aliveMonsters();
+            boolean blocked = true;
+            for (AbstractMonster m : this.group) {
+                blocked &= !m.hasPower(FreezePower.POWER_ID) && !m.hasPower("Artifact");
+            }
+            check("Water Sigil's battle-start freeze was spent on each Sentry's Artifact", blocked, describeAll(this.group));
+            AbstractMonster target = this.group.get(0);
+            applyPower(target, new WetPower(target, 1), 1);
+        });
+        waitUntil("Wet lands", 30, this::playerTurnReady);
+        once("Icicle Prison on a Wet Sentry", () -> {
+            AbstractMonster target = this.group.get(0);
+            this.expected = 1 + (ChantHelper.amount(AbstractDungeon.player) > 0 ? 1 : 0) + 1;
+            this.freezeBefore = amount(target, FreezePower.POWER_ID);
+            queue(handCard("roxymod:RoxyIciclePrison"), target);
+        });
+        waitUntil("Icicle Prison resolves", 30, this::playerTurnReady);
+        once("Wet added one freeze", () -> {
+            AbstractMonster target = this.group.get(0);
+            check("Icicle Prison + Wet: " + this.expected + " freeze and the Wet is spent",
+                amount(target, FreezePower.POWER_ID) - this.freezeBefore == this.expected && !target.hasPower(WetPower.POWER_ID),
+                describe(target));
+            AbstractPlayer p = AbstractDungeon.player;
+            this.potion = new RoxyWaterBarrierPotion();
+            p.obtainPotion(this.potion);
+            this.chantBefore = ChantHelper.amount(p);
+            this.blockBefore = p.currentBlock;
+            this.freezesBefore.clear();
+            for (AbstractMonster m : this.group) {
+                this.freezesBefore.add(amount(m, FreezePower.POWER_ID));
+            }
+            // What drinking from the potion bar does.
+            this.potion.use(null);
+            for (AbstractRelic r : p.relics) {
+                r.onUsePotion();
+            }
+            AbstractDungeon.topPanel.destroyPotion(this.potion.slot);
+        });
+        waitUntil("potion resolves", 30, this::playerTurnReady);
+        delay(1);
+        once("Water Barrier potion", () -> {
+            AbstractPlayer p = AbstractDungeon.player;
+            boolean froze = true;
+            for (int i = 0; i < this.group.size(); i++) {
+                AbstractMonster m = this.group.get(i);
+                froze &= m.isDeadOrEscaped() || amount(m, FreezePower.POWER_ID) - this.freezesBefore.get(i) == 2;
+            }
+            check("Water Barrier: 8 block and 2 freeze on every enemy", p.currentBlock - this.blockBefore == 8 && froze,
+                "block +" + (p.currentBlock - this.blockBefore) + " " + describeAll(this.group));
+            check("Milis Charm: drinking a potion gives 2 chant", ChantHelper.amount(p) - this.chantBefore == 2,
+                "chant " + this.chantBefore + " -> " + ChantHelper.amount(p));
+        });
+        shot("42-sentries");
+        killAndWaitForRewards("Sentries");
+    }
+
+    private void restSite() {
+        once("go to a rest site", () -> goToRoom(new RestRoom()));
+        waitUntil("at the rest site", 60, () -> currentRoom() instanceof RestRoom
+            && ((RestRoom) currentRoom()).campfireUI != null && !AbstractDungeon.isFadingOut);
+        delay(3);
+        shot("43-rest-site");
+    }
+
+    private void treasureChest() {
+        once("go to a treasure room", () -> goToRoom(new TreasureRoom()));
+        waitUntil("at the treasure room", 60, () -> currentRoom() instanceof TreasureRoom
+            && ((TreasureRoom) currentRoom()).chest != null && !AbstractDungeon.isFadingOut);
+        delay(1);
+        once("open the chest", () -> ((TreasureRoom) currentRoom()).chest.open(false));
+        // open() hands out the rewards; the chest's own isOpen flag is only set by a click.
+        waitUntil("chest rewards shown", 30, () -> AbstractDungeon.screen == AbstractDungeon.CurrentScreen.COMBAT_REWARD);
+        delay(2);
+        shot("44-chest");
+    }
+
+    /** Save and Quit mid-run, then Continue: deck, relics, potions, gold and health survive. */
+    private void saveAndContinue() {
+        // Console fights started from Neow sit on map row -1, and the game cannot reload a save
+        // made there. Enter this fight at a real first-row map position, as a player would.
+        once("enter a fight on the map's first row (entering autosaves)", () -> {
+            MapRoomNode real = null;
+            for (MapRoomNode n : AbstractDungeon.map.get(0)) {
+                if (real == null && n.hasEdges()) {
+                    real = n;
+                }
+            }
+            AbstractDungeon.monsterList.add(0, "Jaw Worm");
+            MapRoomNode node = new MapRoomNode(real.x, real.y);
+            node.room = new MonsterRoom();
+            for (MapEdge edge : real.getEdges()) {
+                node.addEdge(edge);
+            }
+            AbstractDungeon.nextRoom = node;
+            AbstractDungeon.nextRoomTransitionStart();
+        });
+        waitUntil("Jaw Worm combat ready", 90, () -> find(JawWorm.class) != null && playerTurnReady());
+        delay(1);
+        once("save and quit", () -> {
+            check("entering the room wrote a save", SaveAndContinue.saveExistsAndNotCorrupted(AbstractDungeon.player), "no save");
+            this.runBefore = runSnapshot();
+            ConfirmPopup exit = AbstractDungeon.settingsScreen.exitPopup;
+            exit.type = ConfirmPopup.ConfirmType.EXIT;
+            try {
+                Method yes = ConfirmPopup.class.getDeclaredMethod("yesButtonEffect");
+                yes.setAccessible(true);
+                yes.invoke(exit);
+            } catch (ReflectiveOperationException e) {
+                throw new IllegalStateException(e);
+            }
+        });
+        waitUntil("back at the main menu", 60, () -> CardCrawlGame.mode == CardCrawlGame.GameMode.CHAR_SELECT
+            && CardCrawlGame.mainMenuScreen != null && !CardCrawlGame.mainMenuScreen.isFadingOut);
+        delay(2);
+        once("continue the run", () -> {
+            // What the main menu's Continue button does.
+            CardCrawlGame.loadingSave = true;
+            CardCrawlGame.chosenCharacter = CardCrawlGame.characterManager.loadChosenCharacter().chosenClass;
+            CardCrawlGame.mainMenuScreen.isFadingOut = true;
+            CardCrawlGame.mainMenuScreen.fadeOutMusic();
+            Settings.isDailyRun = false;
+            Settings.isTrial = false;
+            ModHelper.setModsFalse();
+        });
+        waitUntil("run resumed in a fight", 120, () -> CardCrawlGame.mode == CardCrawlGame.GameMode.GAMEPLAY
+            && AbstractDungeon.player != null && currentRoom() instanceof MonsterRoom && playerTurnReady());
+        delay(2);
+        once("run state survived", () -> {
+            String after = runSnapshot();
+            check("the reloaded fight is the saved Jaw Worm fight", find(JawWorm.class) != null, describeAll(aliveMonsters()));
+            check("deck, relics, potions, gold and health survive Save and Continue", after.equals(this.runBefore),
+                "before: " + this.runBefore + " | after: " + after);
+            check("still Roxy with her energy orb after loading", AbstractDungeon.player.chosenClass == RoxyEnums.ROXY
+                && AbstractDungeon.player.getEnergyImage() == ImageMaster.BLUE_ORB_FLASH_VFX, String.valueOf(AbstractDungeon.player.chosenClass));
+        });
+        shot("45-after-continue");
+    }
+
+    private void death() {
+        once("die", () -> console("kill self"));
+        waitUntil("death screen", 60, () -> AbstractDungeon.screen == AbstractDungeon.CurrentScreen.DEATH);
+        delay(3);
+        shot("46-death");
     }
 
     // Task helpers.
@@ -411,8 +849,13 @@ public class RoxySmokeTest implements PostUpdateSubscriber, PostRenderSubscriber
 
     // Game helpers.
 
+    /** The current room, or null while a run is loading and there is no map node yet. */
+    private static AbstractRoom currentRoom() {
+        return AbstractDungeon.currMapNode == null ? null : AbstractDungeon.getCurrRoom();
+    }
+
     private boolean playerTurnReady() {
-        AbstractRoom room = AbstractDungeon.getCurrRoom();
+        AbstractRoom room = currentRoom();
         return room != null && room.phase == AbstractRoom.RoomPhase.COMBAT
             && !AbstractDungeon.actionManager.turnHasEnded
             && AbstractDungeon.actionManager.phase == GameActionManager.Phase.WAITING_ON_USER
@@ -423,7 +866,7 @@ public class RoxySmokeTest implements PostUpdateSubscriber, PostRenderSubscriber
     }
 
     private static <T extends AbstractMonster> T find(Class<T> type) {
-        AbstractRoom room = AbstractDungeon.getCurrRoom();
+        AbstractRoom room = currentRoom();
         if (!(room instanceof MonsterRoom) || room.monsters == null) {
             return null;
         }
@@ -436,11 +879,91 @@ public class RoxySmokeTest implements PostUpdateSubscriber, PostRenderSubscriber
     }
 
     private static void play(String cardId, AbstractMonster target) {
+        queue(handCard(cardId), target);
+    }
+
+    /** A fresh copy of the card, put into the hand. */
+    private static AbstractCard handCard(String cardId) {
         AbstractCard card = CardLibrary.getCard(cardId).makeCopy();
         AbstractDungeon.player.hand.addToHand(card);
         AbstractDungeon.player.hand.refreshHandLayout();
         card.applyPowers();
+        return card;
+    }
+
+    /** Plays the card through the game's card queue, the way Havoc-style autoplay does. */
+    private static void queue(AbstractCard card, AbstractMonster target) {
         AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(card, target, card.energyOnUse, true, true));
+    }
+
+    /** Plays a card that is not in the hand, so a full hand stays full while it resolves. */
+    private static void queueFromLimbo(String cardId, AbstractMonster target) {
+        AbstractCard card = CardLibrary.getCard(cardId).makeCopy();
+        card.current_x = card.target_x = Settings.WIDTH / 2f;
+        card.current_y = card.target_y = Settings.HEIGHT / 2f;
+        AbstractDungeon.player.limbo.addToTop(card);
+        queue(card, target);
+    }
+
+    private static void applyPower(AbstractCreature target, AbstractPower power, int amount) {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, AbstractDungeon.player, power, amount));
+    }
+
+    private void killAndWaitForRewards(String label) {
+        once("kill the " + label, () -> console("kill all"));
+        waitUntil(label + " reward screen", 60, () -> AbstractDungeon.screen == AbstractDungeon.CurrentScreen.COMBAT_REWARD);
+    }
+
+    /** What the console's fight command does, for any room type. */
+    private static void goToRoom(AbstractRoom room) {
+        MapRoomNode current = AbstractDungeon.currMapNode;
+        MapRoomNode node = new MapRoomNode(current.x, current.y);
+        node.room = room;
+        for (MapEdge edge : current.getEdges()) {
+            node.addEdge(edge);
+        }
+        AbstractDungeon.nextRoom = node;
+        AbstractDungeon.nextRoomTransitionStart();
+    }
+
+    private static List<AbstractMonster> aliveMonsters() {
+        List<AbstractMonster> alive = new ArrayList<>();
+        AbstractRoom room = currentRoom();
+        if (room != null && room.monsters != null) {
+            for (AbstractMonster m : room.monsters.monsters) {
+                if (!m.isDeadOrEscaped()) {
+                    alive.add(m);
+                }
+            }
+        }
+        return alive;
+    }
+
+    private static String describeAll(List<AbstractMonster> monsters) {
+        StringBuilder text = new StringBuilder();
+        for (AbstractMonster m : monsters) {
+            text.append('{').append(describe(m)).append("} ");
+        }
+        return text.toString().trim();
+    }
+
+    /** Deck, relics with counters, potions, gold and health: what a save must carry. */
+    private static String runSnapshot() {
+        AbstractPlayer p = AbstractDungeon.player;
+        StringBuilder text = new StringBuilder("deck[");
+        for (AbstractCard c : p.masterDeck.group) {
+            text.append(c.cardID).append(c.upgraded ? "+" : "").append(' ');
+        }
+        text.append("] relics[");
+        for (AbstractRelic r : p.relics) {
+            text.append(r.relicId).append('=').append(r.counter).append(' ');
+        }
+        text.append("] potions[");
+        for (AbstractPotion potion : p.potions) {
+            text.append(potion.ID).append(' ');
+        }
+        return text.append("] gold=").append(p.gold).append(" hp=").append(p.currentHealth).append('/').append(p.maxHealth)
+            .append(" floor=").append(AbstractDungeon.floorNum).toString();
     }
 
     private static void console(String command) {
@@ -483,7 +1006,7 @@ public class RoxySmokeTest implements PostUpdateSubscriber, PostRenderSubscriber
     }
 
     private static String state() {
-        AbstractRoom room = CardCrawlGame.mode == CardCrawlGame.GameMode.GAMEPLAY ? AbstractDungeon.getCurrRoom() : null;
+        AbstractRoom room = CardCrawlGame.mode == CardCrawlGame.GameMode.GAMEPLAY ? currentRoom() : null;
         return "mode=" + CardCrawlGame.mode
             + " room=" + (room == null ? "none" : room.getClass().getSimpleName() + "/" + room.phase)
             + " screen=" + AbstractDungeon.screen

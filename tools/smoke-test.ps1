@@ -11,7 +11,7 @@ The game window opens for a few minutes and closes itself. Don't click in it whi
 Results go to build\smoke\out: smoke-report.txt, screenshots, combat-log.tsv and game logs.
 #>
 param(
-    [int]$TimeoutSeconds = 600,
+    [int]$TimeoutSeconds = 1200,
     [switch]$NoBuild
 )
 
@@ -92,12 +92,23 @@ $process = Start-Process -FilePath $GameJava -ArgumentList $quoted -WorkingDirec
 # The harness writes its report and then quits the game. ModTheSpire's own window can keep
 # the Java process alive afterwards, so close it once the game has had time to shut down.
 $Report = Join-Path $Out 'smoke-report.txt'
+$GameLog = Join-Path $Sandbox 'sendToDevs\logs\SlayTheSpire.log'
 $deadline = (Get-Date).AddSeconds($TimeoutSeconds)
 $reportSeenAt = $null
+$shutdownSeenAt = $null
 while (-not $process.HasExited) {
     if ((Get-Date) -gt $deadline) {
         Stop-Process -Id $process.Id -Force
         throw "The game did not finish within $TimeoutSeconds seconds; see $Out."
+    }
+    # A crash shuts the game down without a report, but ModTheSpire keeps the process alive.
+    if (-not $reportSeenAt -and -not $shutdownSeenAt -and (Test-Path -LiteralPath $GameLog) -and
+        (Select-String -LiteralPath $GameLog -SimpleMatch 'Clean shutdown successful' -Quiet)) { $shutdownSeenAt = Get-Date }
+    if ($shutdownSeenAt -and -not (Test-Path -LiteralPath $Report) -and ((Get-Date) - $shutdownSeenAt).TotalSeconds -gt 10) {
+        Stop-Process -Id $process.Id -Force
+        Copy-Item -LiteralPath $GameLog -Destination $Out
+        Select-String -LiteralPath $GameLog -Pattern 'Exception|ERROR' | Select-Object -Last 5 | ForEach-Object { $_.Line }
+        throw "The game shut down before the smoke test finished (likely a crash); see $Out\SlayTheSpire.log."
     }
     if (-not $reportSeenAt -and (Test-Path -LiteralPath $Report)) { $reportSeenAt = Get-Date }
     if ($reportSeenAt -and ((Get-Date) - $reportSeenAt).TotalSeconds -gt 20) {
@@ -106,7 +117,6 @@ while (-not $process.HasExited) {
     }
     Start-Sleep -Milliseconds 500
 }
-$GameLog = Join-Path $Sandbox 'sendToDevs\logs\SlayTheSpire.log'
 if (Test-Path -LiteralPath $GameLog) { Copy-Item -LiteralPath $GameLog -Destination $Out }
 
 if (-not (Test-Path -LiteralPath $Report)) {
